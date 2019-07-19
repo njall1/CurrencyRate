@@ -74,6 +74,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1938B3DB22E18CF300843E2A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1938B3E022E18D7C00843E2A /* Constants */,
+				1938B3E322E18DCC00843E2A /* CoreLayer */,
+				1938B3DE22E18D4B00843E2A /* ApplicationLayer */,
+				1938B3E222E18D9500843E2A /* PresentationLayer */,
+				1938B3DF22E18D6100843E2A /* BussinesLogicLayer */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1938B3DC22E18D0800843E2A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1938B3DD22E18D1D00843E2A /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		1938B3DE22E18D4B00843E2A /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		1938B3DF22E18D6100843E2A /* BussinesLogicLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BussinesLogicLayer;
+			sourceTree = "<group>";
+		};
+		1938B3E022E18D7C00843E2A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1938B3E222E18D9500843E2A /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		1938B3E322E18DCC00843E2A /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
 		1986327B22E1071700DAB4AD = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +158,9 @@
 		1986328622E1071700DAB4AD /* CurrencyRate */ = {
 			isa = PBXGroup;
 			children = (
+				1938B3DB22E18CF300843E2A /* Classes */,
+				1938B3DC22E18D0800843E2A /* Resources */,
+				1938B3DD22E18D1D00843E2A /* Templates */,
 				1986328722E1071700DAB4AD /* AppDelegate.swift */,
 				1986328922E1071700DAB4AD /* ViewController.swift */,
 				1986328B22E1071700DAB4AD /* Main.storyboard */,
