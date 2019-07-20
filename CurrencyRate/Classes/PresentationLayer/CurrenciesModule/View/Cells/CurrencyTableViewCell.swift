@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AddRateTableViewCell: UITableViewCell {
+final class CurrencyTableViewCell: UITableViewCell {
     struct DisplayItem {
         let thumbnailIName: String
         let title: String
