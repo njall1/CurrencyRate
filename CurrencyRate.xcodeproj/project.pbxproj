@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1938B3EB22E3716400843E2A /* AddRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3E922E3716400843E2A /* AddRateTableViewCell.swift */; };
+		1938B3EC22E3716400843E2A /* AddRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1938B3EA22E3716400843E2A /* AddRateTableViewCell.xib */; };
+		1938B3EF22E377BB00843E2A /* AddRateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3EE22E377BB00843E2A /* AddRateAdapter.swift */; };
+		1938B3F122E3789600843E2A /* AddRateModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3F022E3789600843E2A /* AddRateModuleIO.swift */; };
+		1938B3F322E37E9800843E2A /* AddRateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1938B3F222E37E9800843E2A /* AddRateStoryboard.storyboard */; };
+		1938B3F522E37F1A00843E2A /* AddRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3F422E37F1A00843E2A /* AddRateViewController.swift */; };
+		1938B3F722E37F8300843E2A /* AddRateViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3F622E37F8300843E2A /* AddRateViewIO.swift */; };
+		1938B3F922E382FC00843E2A /* AddRatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3F822E382FC00843E2A /* AddRatePresenter.swift */; };
+		1938B3FB22E385A800843E2A /* CurrencyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3FA22E385A800843E2A /* CurrencyEntity.swift */; };
+		1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3FC22E3862C00843E2A /* CurrenciesService.swift */; };
+		1938B41C22E38C9C00843E2A /* CurrenciesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B41B22E38C9C00843E2A /* CurrenciesAssembly.swift */; };
 		1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328722E1071700DAB4AD /* AppDelegate.swift */; };
 		1986328A22E1071700DAB4AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328922E1071700DAB4AD /* ViewController.swift */; };
 		1986328D22E1071700DAB4AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986328B22E1071700DAB4AD /* Main.storyboard */; };
@@ -34,6 +45,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1938B3E922E3716400843E2A /* AddRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRateTableViewCell.swift; sourceTree = "<group>"; };
+		1938B3EA22E3716400843E2A /* AddRateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRateTableViewCell.xib; sourceTree = "<group>"; };
+		1938B3EE22E377BB00843E2A /* AddRateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRateAdapter.swift; sourceTree = "<group>"; };
+		1938B3F022E3789600843E2A /* AddRateModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRateModuleIO.swift; sourceTree = "<group>"; };
+		1938B3F222E37E9800843E2A /* AddRateStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRateStoryboard.storyboard; sourceTree = "<group>"; };
+		1938B3F422E37F1A00843E2A /* AddRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRateViewController.swift; sourceTree = "<group>"; };
+		1938B3F622E37F8300843E2A /* AddRateViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRateViewIO.swift; sourceTree = "<group>"; };
+		1938B3F822E382FC00843E2A /* AddRatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddRatePresenter.swift; path = CurrencyRate/Classes/PresentationLayer/AddRateModule/View/AddRatePresenter.swift; sourceTree = SOURCE_ROOT; };
+		1938B3FA22E385A800843E2A /* CurrencyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEntity.swift; sourceTree = "<group>"; };
+		1938B3FC22E3862C00843E2A /* CurrenciesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesService.swift; sourceTree = "<group>"; };
+		1938B41B22E38C9C00843E2A /* CurrenciesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesAssembly.swift; sourceTree = "<group>"; };
 		1986328422E1071700DAB4AD /* CurrencyRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986328722E1071700DAB4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1986328922E1071700DAB4AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +132,7 @@
 		1938B3DF22E18D6100843E2A /* BussinesLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1938B3FC22E3862C00843E2A /* CurrenciesService.swift */,
 			);
 			path = BussinesLogicLayer;
 			sourceTree = "<group>";
@@ -124,6 +147,7 @@
 		1938B3E222E18D9500843E2A /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1938B3E422E36EE900843E2A /* AddRateModule */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -133,6 +157,71 @@
 			children = (
 			);
 			path = CoreLayer;
+			sourceTree = "<group>";
+		};
+		1938B3E422E36EE900843E2A /* AddRateModule */ = {
+			isa = PBXGroup;
+			children = (
+				1938B3E522E370EF00843E2A /* Model */,
+				1938B3E622E370FB00843E2A /* View */,
+				1938B3E722E3710A00843E2A /* Presenter */,
+			);
+			path = AddRateModule;
+			sourceTree = "<group>";
+		};
+		1938B3E522E370EF00843E2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1938B3FA22E385A800843E2A /* CurrencyEntity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1938B3E622E370FB00843E2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1938B41A22E38C6700843E2A /* Assembly */,
+				1938B3ED22E3776A00843E2A /* Adapter */,
+				1938B3E822E3713000843E2A /* Cells */,
+				1938B3F422E37F1A00843E2A /* AddRateViewController.swift */,
+				1938B3F222E37E9800843E2A /* AddRateStoryboard.storyboard */,
+				1938B3F622E37F8300843E2A /* AddRateViewIO.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1938B3E722E3710A00843E2A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1938B3F022E3789600843E2A /* AddRateModuleIO.swift */,
+				1938B3F822E382FC00843E2A /* AddRatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1938B3E822E3713000843E2A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1938B3E922E3716400843E2A /* AddRateTableViewCell.swift */,
+				1938B3EA22E3716400843E2A /* AddRateTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1938B3ED22E3776A00843E2A /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				1938B3EE22E377BB00843E2A /* AddRateAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		1938B41A22E38C6700843E2A /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				1938B41B22E38C9C00843E2A /* CurrenciesAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		1986327B22E1071700DAB4AD = {
@@ -294,8 +383,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */,
+				1938B3EC22E3716400843E2A /* AddRateTableViewCell.xib in Resources */,
 				1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */,
 				1986328D22E1071700DAB4AD /* Main.storyboard in Resources */,
+				1938B3F322E37E9800843E2A /* AddRateStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +412,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1986328A22E1071700DAB4AD /* ViewController.swift in Sources */,
+				1938B3F122E3789600843E2A /* AddRateModuleIO.swift in Sources */,
+				1938B3EF22E377BB00843E2A /* AddRateAdapter.swift in Sources */,
+				1938B3EB22E3716400843E2A /* AddRateTableViewCell.swift in Sources */,
+				1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */,
+				1938B3F522E37F1A00843E2A /* AddRateViewController.swift in Sources */,
+				1938B3FB22E385A800843E2A /* CurrencyEntity.swift in Sources */,
 				1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */,
+				1938B3F922E382FC00843E2A /* AddRatePresenter.swift in Sources */,
+				1938B41C22E38C9C00843E2A /* CurrenciesAssembly.swift in Sources */,
+				1938B3F722E37F8300843E2A /* AddRateViewIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
