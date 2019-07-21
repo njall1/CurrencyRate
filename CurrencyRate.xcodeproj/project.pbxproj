@@ -25,6 +25,7 @@
 		1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */; };
 		1986329D22E1071A00DAB4AD /* CurrencyRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986329C22E1071A00DAB4AD /* CurrencyRateTests.swift */; };
 		198632A822E1071A00DAB4AD /* CurrencyRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198632A722E1071A00DAB4AD /* CurrencyRateUITests.swift */; };
+		19A9A7BC22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A9A7BB22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		198632A322E1071A00DAB4AD /* CurrencyRateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyRateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198632A722E1071A00DAB4AD /* CurrencyRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateUITests.swift; sourceTree = "<group>"; };
 		198632A922E1071A00DAB4AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19A9A7BB22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmptyCurrenciesRateStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		1938B3E222E18D9500843E2A /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				19A9A7B822E471A700EED646 /* EmptyCurrenciesRate */,
 				1938B3E422E36EE900843E2A /* CurrenciesModule */,
 			);
 			path = PresentationLayer;
@@ -278,6 +281,30 @@
 			path = CurrencyRateUITests;
 			sourceTree = "<group>";
 		};
+		19A9A7B822E471A700EED646 /* EmptyCurrenciesRate */ = {
+			isa = PBXGroup;
+			children = (
+				19A9A7BA22E471E900EED646 /* Presenter */,
+				19A9A7B922E471E200EED646 /* View */,
+			);
+			path = EmptyCurrenciesRate;
+			sourceTree = "<group>";
+		};
+		19A9A7B922E471E200EED646 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19A9A7BB22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19A9A7BA22E471E900EED646 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +411,7 @@
 			files = (
 				1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */,
 				1938B3EC22E3716400843E2A /* CurrencyTableViewCell.xib in Resources */,
+				19A9A7BC22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard in Resources */,
 				1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */,
 				1986328D22E1071700DAB4AD /* Main.storyboard in Resources */,
 				1938B3F322E37E9800843E2A /* CurrenciesStoryboard.storyboard in Resources */,
