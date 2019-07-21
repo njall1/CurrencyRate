@@ -25,9 +25,6 @@
                                     <constraint firstAttribute="height" constant="40" id="whH-PH-VfA"/>
                                 </constraints>
                                 <state key="normal" title="Add"/>
-                                <connections>
-                                    <segue destination="S7P-am-Hdl" kind="presentation" id="5na-kl-ihW"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,14 +37,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--AddRateStoryboard-->
-        <scene sceneID="quY-kx-U6W">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddRateStoryboard" storyboardName="AddRateStoryboard" id="S7P-am-Hdl" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k4d-Yz-dWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="694" y="21"/>
         </scene>
     </scenes>
 </document>

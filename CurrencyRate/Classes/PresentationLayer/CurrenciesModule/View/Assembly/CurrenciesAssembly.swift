@@ -9,7 +9,7 @@
 import UIKit
 
 struct CurrenciesAssembly {
-    func makeCurrenciesModule() -> UIViewController? {
+    static func makeCurrenciesModule() -> UIViewController? {
         guard let viewController = UIStoryboard(name: "CurrenciesStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesViewController
             else { return nil }
         

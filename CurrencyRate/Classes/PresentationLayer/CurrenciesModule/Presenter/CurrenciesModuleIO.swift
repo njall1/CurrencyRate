@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CurrenciesModuleInput {
-    func configureModule(disabledCurrencies: [String], completionHandler: @escaping (_ code: String) -> Void)
+    func configureModule(disabledCurrencies: [CurrencyEntity], completionHandler: @escaping (_ code: String) -> Void)
 }
 
 protocol CurrenciesModuleOutput { }

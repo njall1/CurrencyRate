@@ -6,14 +6,15 @@
 //  Copyright © 2019 Vitaliy Rusinov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class CurrenciesPresenter {
     weak var view: CurrenciesViewInput?
     var currenciesService: CurenciesServiceInput
     
     private var finishHandler: ((String) -> Void)?
-    private var dataSource: [CurrencyEntity] = []
+    private var dataSource = [CurrencyEntity]()
+    private var disabledCurrencies = [CurrencyEntity]()
     
     init(view: CurrenciesViewInput, currenciesService: CurenciesServiceInput) {
         self.view = view
@@ -22,19 +23,29 @@ final class CurrenciesPresenter {
 }
 
 extension CurrenciesPresenter: CurrenciesModuleInput {
-    func configureModule(disabledCurrencies: [String], completionHandler: @escaping (String) -> Void) {
+    func configureModule(disabledCurrencies: [CurrencyEntity], completionHandler: @escaping (String) -> Void) {
         self.finishHandler = completionHandler
-        // TODO: Configure disabledCurrencies for module 
+        self.disabledCurrencies = disabledCurrencies
     }
 }
 
 extension CurrenciesPresenter: CurrenciesViewOutput {
     func viewDidLoad() {
         self.currenciesService.fetchCurencies { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let currencies):
-                self?.dataSource = currencies
-                self?.view?.showCurrencies(currencies.map { CurrencyTableViewCell.DisplayItem(thumbnailIName: $0.code, title: $0.code, subtitle: $0.code) })
+                self.dataSource = currencies
+                self.view?.showCurrencies(currencies.map {
+                    let alpha: CGFloat = self.isDisabledCurrency(currency: $0) ? 0.3 : 1.0
+                    return CurrencyTableViewCell.DisplayItem(thumbnailName: $0.code,
+                                                             thumbnailAlpha: alpha,
+                                                             title: $0.code,
+                                                             titleAlpha: alpha,
+                                                             subtitle: $0.code,
+                                                             subtitleAlpha: alpha)
+                })
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -44,6 +55,14 @@ extension CurrenciesPresenter: CurrenciesViewOutput {
 
 extension CurrenciesPresenter: CurrenciesAdapterDelegate {
     func didDeselectRowAt(index: Int) {
+        guard !self.isDisabledCurrency(currency: self.dataSource[index]) else { return }
         self.finishHandler?(self.dataSource[index].code)
+    }
+}
+
+private extension CurrenciesPresenter {
+    func isDisabledCurrency(currency: CurrencyEntity) -> Bool {
+        guard !self.disabledCurrencies.isEmpty else { return false }
+        return self.disabledCurrencies.contains(where: { $0.code == currency.code })
     }
 }

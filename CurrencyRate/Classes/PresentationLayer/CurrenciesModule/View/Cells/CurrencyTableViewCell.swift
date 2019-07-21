@@ -10,9 +10,12 @@ import UIKit
 
 final class CurrencyTableViewCell: UITableViewCell {
     struct DisplayItem {
-        let thumbnailIName: String
+        let thumbnailName: String
+        let thumbnailAlpha: CGFloat
         let title: String
+        let titleAlpha: CGFloat
         let subtitle: String
+        let subtitleAlpha: CGFloat
     }
     
     @IBOutlet private var thumbnailImageView: UIImageView!
@@ -23,18 +26,17 @@ final class CurrencyTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.titleLabel.text = nil
+        self.subtitleLabel.text = nil
+        self.thumbnailImageView.image = nil
     }
     
     func configure(displayItem: DisplayItem) {
         self.titleLabel.text = displayItem.title
+        self.titleLabel.alpha = displayItem.titleAlpha
         self.subtitleLabel.text = displayItem.subtitle
-        self.thumbnailImageView.image = UIImage(named: displayItem.thumbnailIName)
+        self.subtitleLabel.alpha = displayItem.subtitleAlpha
+        self.thumbnailImageView.image = UIImage(named: displayItem.thumbnailName)
+        self.thumbnailImageView.alpha = displayItem.thumbnailAlpha
     }
 }
