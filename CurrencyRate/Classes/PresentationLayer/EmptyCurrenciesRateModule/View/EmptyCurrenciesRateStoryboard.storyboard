@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Empty Currencies Rate View Controller-->
+        <scene sceneID="n1G-4K-cW9">
+            <objects>
+                <viewController id="JWa-xV-E4f" customClass="EmptyCurrenciesRateViewController" customModule="CurrencyRate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZPe-Qx-APE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jLu-9y-SxU">
+                                <rect key="frame" x="0.0" y="226" width="320" height="116.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1F5-od-Vaa">
+                                        <rect key="frame" x="140" y="0.0" width="40" height="40"/>
+                                        <state key="normal" image="Plus">
+                                            <color key="titleColor" red="0.1764705882352941" green="0.46666666666666667" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickAddCurrencyPair:" destination="JWa-xV-E4f" eventType="touchUpInside" id="k5c-VP-Xbb"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add currency pair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzJ-rH-DWw">
+                                        <rect key="frame" x="95.5" y="48" width="129" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.1764705882352941" green="0.46666666666666667" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a currency pair to compare their live rates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL3-Zb-aJD">
+                                        <rect key="frame" x="23.5" y="75.5" width="273.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KzJ-rH-DWw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jLu-9y-SxU" secondAttribute="leading" constant="16" id="83N-0W-5SK"/>
+                                    <constraint firstItem="TL3-Zb-aJD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jLu-9y-SxU" secondAttribute="leading" constant="16" id="N8Q-CG-PoJ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TL3-Zb-aJD" secondAttribute="trailing" constant="16" id="NSm-RD-ljR"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KzJ-rH-DWw" secondAttribute="trailing" constant="16" id="Wqy-x7-oxS"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jLu-9y-SxU" firstAttribute="leading" secondItem="ZPe-Qx-APE" secondAttribute="leading" id="RMF-Qm-78Z"/>
+                            <constraint firstItem="jLu-9y-SxU" firstAttribute="centerY" secondItem="ZPe-Qx-APE" secondAttribute="centerY" id="axd-xj-1b6"/>
+                            <constraint firstAttribute="trailing" secondItem="jLu-9y-SxU" secondAttribute="trailing" id="zNU-Ij-5NX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MHU-k4-orl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISL-3r-Rp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.25" y="184.85915492957747"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Plus" width="40" height="40"/>
+    </resources>
+</document>
