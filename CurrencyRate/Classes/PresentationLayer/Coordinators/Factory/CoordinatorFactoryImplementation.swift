@@ -8,8 +8,13 @@
 
 import Foundation
 
-final class CoordinatorFactoryImplementation: CoordinatorFactory {
+final class CoordinatorFactoryImplementation: CoordinatorFactory {    
     func makeAddCurrencyPair(router: Router) -> Coordinator {
-        return CurrencyRatePairCoordinator()
+        return AddCurrencyPairCoordinator()
+    }
+    
+    func makeCurrencyRate(router: Router, finishFlow: EmptyCallback?) -> Coordinator & CurrencyRateCoordinatorOutput  {
+        let moduleFactory = ModuleFactoryImplementation()
+        return CurrencyRateCoordinator(router: router, emptyCurrenciesRateModuleFactory: moduleFactory, finishFlow: finishFlow)
     }
 }

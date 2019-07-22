@@ -40,8 +40,9 @@
 		AFC77D7622E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */; };
 		AFC77D7822E5EAED003AC2D1 /* ModuleFactoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7722E5EAED003AC2D1 /* ModuleFactoryImplementation.swift */; };
 		AFC77D7A22E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7922E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift */; };
-		AFC77D7E22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7D22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift */; };
+		AFC77D7E22E5F057003AC2D1 /* AddCurrencyPairCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7D22E5F057003AC2D1 /* AddCurrencyPairCoordinator.swift */; };
 		AFC77D8022E5F337003AC2D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC77D7F22E5F337003AC2D1 /* Main.storyboard */; };
+		AFC77D9022E5F912003AC2D1 /* CurrencyRateCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D8F22E5F912003AC2D1 /* CurrencyRateCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +102,9 @@
 		AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateModuleFactory.swift; sourceTree = "<group>"; };
 		AFC77D7722E5EAED003AC2D1 /* ModuleFactoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactoryImplementation.swift; sourceTree = "<group>"; };
 		AFC77D7922E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryImplementation.swift; sourceTree = "<group>"; };
-		AFC77D7D22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatePairCoordinator.swift; sourceTree = "<group>"; };
+		AFC77D7D22E5F057003AC2D1 /* AddCurrencyPairCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyPairCoordinator.swift; sourceTree = "<group>"; };
 		AFC77D7F22E5F337003AC2D1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AFC77D8F22E5F912003AC2D1 /* CurrencyRateCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,7 +362,8 @@
 			children = (
 				AFC77D7B22E5F00A003AC2D1 /* Factory */,
 				19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */,
-				AFC77D7D22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift */,
+				AFC77D7D22E5F057003AC2D1 /* AddCurrencyPairCoordinator.swift */,
+				AFC77D8F22E5F912003AC2D1 /* CurrencyRateCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				1938B42022E3B00100843E2A /* CurrenciesModuleIO.swift in Sources */,
 				19A9A7C222E4BDF300EED646 /* EmptyCurrenciesRateViewIO.swift in Sources */,
 				19A9A7C022E4BDC200EED646 /* EmptyCurrenciesRatePresenter.swift in Sources */,
+				AFC77D9022E5F912003AC2D1 /* CurrencyRateCoordinator.swift in Sources */,
 				AFC77D7A22E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift in Sources */,
 				1938B3EF22E377BB00843E2A /* CurrenciesAdapter.swift in Sources */,
 				1938B3EB22E3716400843E2A /* CurrencyTableViewCell.swift in Sources */,
@@ -587,7 +591,7 @@
 				19A9A7C422E4BFE900EED646 /* EmptyCurrenciesRateModuleIO.swift in Sources */,
 				AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */,
 				AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */,
-				AFC77D7E22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift in Sources */,
+				AFC77D7E22E5F057003AC2D1 /* AddCurrencyPairCoordinator.swift in Sources */,
 				1938B3F522E37F1A00843E2A /* CurrenciesViewController.swift in Sources */,
 				19A9A7BE22E4BD6A00EED646 /* EmptyCurrenciesRateViewController.swift in Sources */,
 				1962C3DF22E4F789003E957C /* AppRouter.swift in Sources */,

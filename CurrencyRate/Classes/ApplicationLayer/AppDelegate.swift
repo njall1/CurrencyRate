@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     func makeCoordinator() -> Coordinator {
         return ApplicationCoordinator(router: AppRouter(rootController: self.rootController),
-                                                        coordinatorFactory: CoordinatorFactoryImplementation(),
-                                                        emptyCurrenciesRateModuleFactory: ModuleFactoryImplementation())
+                                                        coordinatorFactory: CoordinatorFactoryImplementation())
     }
 }
