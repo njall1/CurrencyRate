@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol CurrenciesRateModuleInput: Presentable { }
+protocol CurrenciesRateModuleInput: Presentable, Finishable { }

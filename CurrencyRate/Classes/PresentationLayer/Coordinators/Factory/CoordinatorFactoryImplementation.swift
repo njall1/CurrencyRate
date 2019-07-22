@@ -9,12 +9,16 @@
 import Foundation
 
 final class CoordinatorFactoryImplementation: CoordinatorFactory {    
-    func makeAddCurrencyPair(router: Router) -> Coordinator {
-        return AddCurrencyPairCoordinator()
+    func makeAddCurrencyPair(router: Router) -> Coordinator & Finishable {
+        let moduleFactory = ModuleFactoryImplementation()
+        return AddCurrencyPairCoordinator(router: router,
+                                          currenciesModuleFactory: moduleFactory)
     }
     
-    func makeCurrencyRate(router: Router, finishFlow: EmptyCallback?) -> Coordinator & CurrencyRateCoordinatorOutput  {
+    func makeCurrencyRate(router: Router) -> Coordinator & Finishable {
         let moduleFactory = ModuleFactoryImplementation()
-        return CurrencyRateCoordinator(router: router, emptyCurrenciesRateModuleFactory: moduleFactory, finishFlow: finishFlow)
+        return CurrencyRateCoordinator(router: router,
+                                       emptyCurrenciesRateModuleFactory: moduleFactory,
+                                       currenciesRateModuleFactory: moduleFactory)
     }
 }

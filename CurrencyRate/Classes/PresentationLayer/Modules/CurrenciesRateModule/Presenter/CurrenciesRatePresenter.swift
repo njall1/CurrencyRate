@@ -6,13 +6,21 @@
 //  Copyright © 2019 Vitaliy Rusinov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class CurrenciesRatePresenter {
     weak var view: CurrenciesRateViewInput!
     
+    var finishFlow: EmptyCallback?
+    
     init(view: CurrenciesRateViewInput) {
         self.view = view
+    }
+}
+
+extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
+    func toPresent() -> UIViewController? {
+        return view as? UIViewController
     }
 }
 

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CoordinatorFactory {
-    func makeAddCurrencyPair(router: Router) -> Coordinator
-    func makeCurrencyRate(router: Router, finishFlow: EmptyCallback?) -> Coordinator & CurrencyRateCoordinatorOutput
+    func makeAddCurrencyPair(router: Router) -> Coordinator & Finishable
+    func makeCurrencyRate(router: Router) -> Coordinator & Finishable
 }

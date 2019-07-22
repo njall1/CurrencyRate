@@ -21,10 +21,11 @@ final class ApplicationCoordinator: CommonCoordinator {
     
     override func start() {
         super.start()
-        let coordinator = self.coordinatorFactory.makeCurrencyRate(router: self.router) {
-            [weak self] in
-            
+        let coordinator = self.coordinatorFactory.makeCurrencyRate(router: self.router)
+        
+        coordinator.finishFlow = { [weak self] in
             self?.runAddCurrenciesPair()
+            self?.removeDependency(coordinator)
         }
         
         self.addDependency(coordinator)
@@ -33,6 +34,12 @@ final class ApplicationCoordinator: CommonCoordinator {
     
     private func runAddCurrenciesPair() {
         let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router)
+        
+        coordinator.finishFlow = { [weak self] in
+            self?.start()
+            self?.removeDependency(coordinator)
+        }
+        
         self.addDependency(coordinator)
         coordinator.start()
     }

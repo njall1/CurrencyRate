@@ -9,12 +9,13 @@
 import UIKit
 
 final class CurrenciesPresenter {
-    weak var view: CurrenciesViewInput!
-    var currenciesService: CurenciesServiceInput
-    
-    private var finishHandler: ((String) -> Void)?
+    private weak var view: CurrenciesViewInput!
+    private var currenciesService: CurenciesServiceInput
     private var dataSource = [CurrencyEntity]()
     private var disabledCurrencies = [CurrencyEntity]()
+    
+    var selectedCurrency: CurrencyCallback?
+    var finishFlow: EmptyCallback?
     
     init(view: CurrenciesViewInput, currenciesService: CurenciesServiceInput) {
         self.view = view
@@ -27,8 +28,7 @@ extension CurrenciesPresenter: CurrenciesModuleInput {
         return self.view as? UIViewController
     }
     
-    func configureModule(disabledCurrencies: [CurrencyEntity], completionHandler: @escaping (String) -> Void) {
-        self.finishHandler = completionHandler
+    func configureModule(disabledCurrencies: [CurrencyEntity]) {
         self.disabledCurrencies = disabledCurrencies
     }
 }
@@ -42,7 +42,7 @@ extension CurrenciesPresenter: CurrenciesViewOutput {
             case .success(let currencies):
                 self.dataSource = currencies
                 self.view.showCurrencies(currencies.map {
-                    let alpha: CGFloat = self.isDisabledCurrency(currency: $0) ? 0.3 : 1.0
+                    let alpha: CGFloat = self.isDisabledCurrency(currency: $0) ? Constants.disabledAlpha : Constants.normalAlpha
                     return CurrencyTableViewCell.DisplayItem(thumbnailName: $0.code,
                                                              thumbnailAlpha: alpha,
                                                              title: $0.code,
@@ -59,8 +59,11 @@ extension CurrenciesPresenter: CurrenciesViewOutput {
 
 extension CurrenciesPresenter: CurrenciesAdapterDelegate {
     func didDeselectRowAt(index: Int) {
-        guard !self.isDisabledCurrency(currency: self.dataSource[index]) else { return }
-        self.finishHandler?(self.dataSource[index].code)
+        guard !self.isDisabledCurrency(currency: self.dataSource[index])
+            else { return }
+        
+        self.selectedCurrency?(self.dataSource[index])
+        self.finishFlow?()
     }
 }
 

@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol CurrenciesModuleInput: Presentable {
-    func configureModule(disabledCurrencies: [CurrencyEntity], completionHandler: @escaping (_ code: String) -> Void)
+protocol CurrenciesModuleInput: Presentable, Finishable {
+    var selectedCurrency: CurrencyCallback? { get set }
+    func configureModule(disabledCurrencies: [CurrencyEntity])
 }

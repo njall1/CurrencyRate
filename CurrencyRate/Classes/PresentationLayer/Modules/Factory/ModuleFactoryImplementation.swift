@@ -26,3 +26,12 @@ extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
         return module
     }
 }
+
+extension ModuleFactoryImplementation: CurrenciesModuleFactory {
+    func makeCurrencyModule(disabledCurrencies: [CurrencyEntity]) -> CurrenciesModuleInput {
+        guard let module = CurrenciesAssembly.makeCurrenciesModule()
+            else { fatalError("DI Error for CurrenciesRateAssembly.") }
+        module.configureModule(disabledCurrencies: disabledCurrencies)
+        return module
+    }
+}

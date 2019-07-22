@@ -7,3 +7,4 @@
 //
 
 typealias EmptyCallback = (() -> Void)
+typealias CurrencyCallback = ((_ currency: CurrencyEntity) -> Void)

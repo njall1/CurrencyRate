@@ -8,9 +8,7 @@
 
 import Foundation
 
-protocol CurrencyRateCoordinatorOutput: class {
-    var finishFlow: (EmptyCallback)? { get set }
-}
+protocol CurrencyRateCoordinatorOutput: Finishable { }
 
 final class CurrencyRateCoordinator: CommonCoordinator, CurrencyRateCoordinatorOutput {
     struct Storage {
@@ -27,39 +25,27 @@ final class CurrencyRateCoordinator: CommonCoordinator, CurrencyRateCoordinatorO
     
     init(router: Router,
          emptyCurrenciesRateModuleFactory: EmptyCurrenciesRateModuleFactory,
-         currenciesRateModuleFactory: CurrenciesRateModuleFactory,
-         finishFlow: EmptyCallback?)
+         currenciesRateModuleFactory: CurrenciesRateModuleFactory)
     {
         self.router = router
         self.emptyCurrenciesRateModuleFactory = emptyCurrenciesRateModuleFactory
         self.currenciesRateModuleFactory = currenciesRateModuleFactory
-        self.finishFlow = finishFlow
     }
     
     override func start() {
         super.start()
 
-        let emptyModule: Presentable
+        let module: Presentable & Finishable
         if self.storage.currencies.isEmpty {
-            emptyModule = self.emptyCurrenciesRateModuleFactory.makeEmptyCurrenciesRateModule()
-            
-            emptyModule.finishFlow {
-                [weak self] in
-                
-                self?.finishFlow?()
-            }
+            module = self.emptyCurrenciesRateModuleFactory.makeEmptyCurrenciesRateModule()
         } else {
-            emptyModule = self.currenciesRateModuleFactory.makeCurrenciesRateModule()
-            
-            emptyModule.finishFlow {
-                [weak self] in
-                
-                self?.finishFlow?()
-            }
+            module = self.currenciesRateModuleFactory.makeCurrenciesRateModule()
         }
         
+        module.finishFlow = { [weak self] in
+            self?.finishFlow?()
+        }
         
-        
-        self.router.setRootModule(emptyModule)
+        self.router.setRootModule(module)
     }
 }

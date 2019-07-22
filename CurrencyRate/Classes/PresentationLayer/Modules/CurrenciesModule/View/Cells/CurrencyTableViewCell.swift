@@ -22,7 +22,7 @@ final class CurrencyTableViewCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     
-    static let identifier: String = "AddRateTableViewCell"
+    static let identifier: String = "CurrencyTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

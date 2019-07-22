@@ -17,5 +17,6 @@ struct CurrenciesAssembly {
         viewController.adapter = CurrenciesAdapter()
         viewController.adapter.delegate = viewController.output as? CurrenciesAdapterDelegate
         return viewController.output as? CurrenciesModuleInput
+
     }
 }

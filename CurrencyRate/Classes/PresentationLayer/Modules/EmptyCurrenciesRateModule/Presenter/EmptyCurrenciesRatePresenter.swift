@@ -10,7 +10,8 @@ import UIKit
 
 final class EmptyCurrenciesRatePresenter {
     weak var view: EmptyCurrenciesRateViewInput!
-    private var finishHandler: EmptyCallback?
+    
+    var finishFlow: EmptyCallback?
     
     init(view: EmptyCurrenciesRateViewInput) {
         self.view = view
@@ -21,14 +22,10 @@ extension EmptyCurrenciesRatePresenter: EmptyCurrenciesRateModuleInput {
     func toPresent() -> UIViewController? {
         return self.view as? UIViewController
     }
-    
-    func finishFlow(completionHandler: @escaping EmptyCallback) {
-        self.finishHandler = completionHandler
-    }
 }
 
 extension EmptyCurrenciesRatePresenter: EmptyCurrenciesRateViewOutput {
     func userDidClickAddCurrencyPair() {
-        self.finishHandler?()
+        self.finishFlow?()
     }
 }

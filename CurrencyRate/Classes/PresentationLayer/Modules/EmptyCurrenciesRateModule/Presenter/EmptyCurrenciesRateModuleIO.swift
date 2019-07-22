@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol EmptyCurrenciesRateModuleInput: Presentable {
-    func finishFlow(completionHandler: @escaping EmptyCallback)
-}
+protocol EmptyCurrenciesRateModuleInput: Presentable, Finishable { }

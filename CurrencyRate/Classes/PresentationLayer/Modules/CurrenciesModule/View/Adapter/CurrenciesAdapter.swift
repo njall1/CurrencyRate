@@ -32,6 +32,7 @@ final class CurrenciesAdapter: NSObject {
 
 extension CurrenciesAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.delegate?.didDeselectRowAt(index: indexPath.row)
     }
 }
