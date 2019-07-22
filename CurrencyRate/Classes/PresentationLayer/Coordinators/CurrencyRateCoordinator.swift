@@ -18,29 +18,48 @@ final class CurrencyRateCoordinator: CommonCoordinator, CurrencyRateCoordinatorO
         static let empty = Storage(currencies: [])
     }
     
+    private let currenciesRateModuleFactory: CurrenciesRateModuleFactory
     private let emptyCurrenciesRateModuleFactory: EmptyCurrenciesRateModuleFactory
     private let router: Router
     private var storage = Storage.empty
     
-    var finishFlow: (EmptyCallback)?
+    var finishFlow: EmptyCallback?
     
-    init(router: Router, emptyCurrenciesRateModuleFactory: EmptyCurrenciesRateModuleFactory, finishFlow: EmptyCallback?) {
+    init(router: Router,
+         emptyCurrenciesRateModuleFactory: EmptyCurrenciesRateModuleFactory,
+         currenciesRateModuleFactory: CurrenciesRateModuleFactory,
+         finishFlow: EmptyCallback?)
+    {
         self.router = router
         self.emptyCurrenciesRateModuleFactory = emptyCurrenciesRateModuleFactory
+        self.currenciesRateModuleFactory = currenciesRateModuleFactory
         self.finishFlow = finishFlow
     }
     
     override func start() {
         super.start()
 
+        let emptyModule: Presentable
         if self.storage.currencies.isEmpty {
-            let emptyModule = self.emptyCurrenciesRateModuleFactory.makeEmptyCurrenciesRateModule()
-            emptyModule.configureModule { [weak self] in
+            emptyModule = self.emptyCurrenciesRateModuleFactory.makeEmptyCurrenciesRateModule()
+            
+            emptyModule.finishFlow {
+                [weak self] in
+                
                 self?.finishFlow?()
             }
-            self.router.setRootModule(emptyModule)
         } else {
-            // TODO: Set module
+            emptyModule = self.currenciesRateModuleFactory.makeCurrenciesRateModule()
+            
+            emptyModule.finishFlow {
+                [weak self] in
+                
+                self?.finishFlow?()
+            }
         }
+        
+        
+        
+        self.router.setRootModule(emptyModule)
     }
 }

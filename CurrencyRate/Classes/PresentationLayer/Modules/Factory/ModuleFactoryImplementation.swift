@@ -17,3 +17,12 @@ extension ModuleFactoryImplementation: EmptyCurrenciesRateModuleFactory {
         return module
     }
 }
+
+
+extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
+    func makeCurrenciesRateModule() -> CurrenciesRateModuleInput {
+        guard let module = CurrenciesRateAssembly.makeCurrenciesRateModule()
+            else { fatalError("DI Error for CurrenciesRateAssembly.") }
+        return module
+    }
+}

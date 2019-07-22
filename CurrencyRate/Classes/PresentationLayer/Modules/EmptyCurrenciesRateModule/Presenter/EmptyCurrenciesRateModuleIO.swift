@@ -9,5 +9,5 @@
 import Foundation
 
 protocol EmptyCurrenciesRateModuleInput: Presentable {
-    func configureModule(completionHandler: @escaping EmptyCallback)
+    func finishFlow(completionHandler: @escaping EmptyCallback)
 }
