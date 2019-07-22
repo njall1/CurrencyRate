@@ -8,8 +8,6 @@
 
 import Foundation
 
-protocol CurrenciesModuleInput {
+protocol CurrenciesModuleInput: Presentable {
     func configureModule(disabledCurrencies: [CurrencyEntity], completionHandler: @escaping (_ code: String) -> Void)
 }
-
-protocol CurrenciesModuleOutput { }

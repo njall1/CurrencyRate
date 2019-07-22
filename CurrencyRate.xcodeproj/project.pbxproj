@@ -35,6 +35,13 @@
 		19A9A7C222E4BDF300EED646 /* EmptyCurrenciesRateViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A7C122E4BDF300EED646 /* EmptyCurrenciesRateViewIO.swift */; };
 		19A9A7C422E4BFE900EED646 /* EmptyCurrenciesRateModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A7C322E4BFE900EED646 /* EmptyCurrenciesRateModuleIO.swift */; };
 		19A9A7CB22E4C29E00EED646 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */; };
+		AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */; };
+		AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */; };
+		AFC77D7622E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */; };
+		AFC77D7822E5EAED003AC2D1 /* ModuleFactoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7722E5EAED003AC2D1 /* ModuleFactoryImplementation.swift */; };
+		AFC77D7A22E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7922E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift */; };
+		AFC77D7E22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7D22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift */; };
+		AFC77D8022E5F337003AC2D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC77D7F22E5F337003AC2D1 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +96,13 @@
 		19A9A7C122E4BDF300EED646 /* EmptyCurrenciesRateViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateViewIO.swift; sourceTree = "<group>"; };
 		19A9A7C322E4BFE900EED646 /* EmptyCurrenciesRateModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateModuleIO.swift; sourceTree = "<group>"; };
 		19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateAssembly.swift; sourceTree = "<group>"; };
+		AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateModuleFactory.swift; sourceTree = "<group>"; };
+		AFC77D7722E5EAED003AC2D1 /* ModuleFactoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactoryImplementation.swift; sourceTree = "<group>"; };
+		AFC77D7922E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryImplementation.swift; sourceTree = "<group>"; };
+		AFC77D7D22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRatePairCoordinator.swift; sourceTree = "<group>"; };
+		AFC77D7F22E5F337003AC2D1 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +161,7 @@
 		1938B3DE22E18D4B00843E2A /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AFC77D7F22E5F337003AC2D1 /* Main.storyboard */,
 				1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */,
 				1986328722E1071700DAB4AD /* AppDelegate.swift */,
 			);
@@ -172,8 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				19A9A7C522E4C15400EED646 /* Coordinators */,
-				19A9A7B822E471A700EED646 /* EmptyCurrenciesRateModule */,
-				1938B3E422E36EE900843E2A /* CurrenciesModule */,
+				AFC77D5922E5DD15003AC2D1 /* Modules */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -190,6 +204,7 @@
 		1938B3E422E36EE900843E2A /* CurrenciesModule */ = {
 			isa = PBXGroup;
 			children = (
+				1938B41A22E38C6700843E2A /* Assembly */,
 				1938B3E522E370EF00843E2A /* Model */,
 				1938B3E622E370FB00843E2A /* View */,
 				1938B3E722E3710A00843E2A /* Presenter */,
@@ -208,7 +223,6 @@
 		1938B3E622E370FB00843E2A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1938B41A22E38C6700843E2A /* Assembly */,
 				1938B3ED22E3776A00843E2A /* Adapter */,
 				1938B3E822E3713000843E2A /* Cells */,
 				1938B3F422E37F1A00843E2A /* CurrenciesViewController.swift */,
@@ -315,6 +329,7 @@
 		19A9A7B822E471A700EED646 /* EmptyCurrenciesRateModule */ = {
 			isa = PBXGroup;
 			children = (
+				AFC77D7222E5E667003AC2D1 /* Assembly */,
 				19A9A7BA22E471E900EED646 /* Presenter */,
 				19A9A7B922E471E200EED646 /* View */,
 			);
@@ -343,9 +358,87 @@
 		19A9A7C522E4C15400EED646 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				AFC77D7B22E5F00A003AC2D1 /* Factory */,
 				19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */,
+				AFC77D7D22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		AFC77D5922E5DD15003AC2D1 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AFC77D7C22E5F025003AC2D1 /* Factory */,
+				1938B3E422E36EE900843E2A /* CurrenciesModule */,
+				19A9A7B822E471A700EED646 /* EmptyCurrenciesRateModule */,
+				AFC77D5A22E5DD25003AC2D1 /* CurrenciesRateModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AFC77D5A22E5DD25003AC2D1 /* CurrenciesRateModule */ = {
+			isa = PBXGroup;
+			children = (
+				AFC77D5F22E5DE68003AC2D1 /* Assembly */,
+				AFC77D5B22E5DDF7003AC2D1 /* Model */,
+				AFC77D5C22E5DE04003AC2D1 /* View */,
+				AFC77D5D22E5DE09003AC2D1 /* Presenter */,
+			);
+			path = CurrenciesRateModule;
+			sourceTree = "<group>";
+		};
+		AFC77D5B22E5DDF7003AC2D1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFC77D5C22E5DE04003AC2D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFC77D5D22E5DE09003AC2D1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AFC77D5F22E5DE68003AC2D1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		AFC77D7222E5E667003AC2D1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		AFC77D7B22E5F00A003AC2D1 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */,
+				AFC77D7922E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		AFC77D7C22E5F025003AC2D1 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */,
+				AFC77D7722E5EAED003AC2D1 /* ModuleFactoryImplementation.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +548,7 @@
 				1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */,
 				1938B3EC22E3716400843E2A /* CurrencyTableViewCell.xib in Resources */,
 				19A9A7BC22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard in Resources */,
+				AFC77D8022E5F337003AC2D1 /* Main.storyboard in Resources */,
 				1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */,
 				1938B3F322E37E9800843E2A /* CurrenciesStoryboard.storyboard in Resources */,
 			);
@@ -484,22 +578,28 @@
 				1938B42022E3B00100843E2A /* CurrenciesModuleIO.swift in Sources */,
 				19A9A7C222E4BDF300EED646 /* EmptyCurrenciesRateViewIO.swift in Sources */,
 				19A9A7C022E4BDC200EED646 /* EmptyCurrenciesRatePresenter.swift in Sources */,
+				AFC77D7A22E5EFCF003AC2D1 /* CoordinatorFactoryImplementation.swift in Sources */,
 				1938B3EF22E377BB00843E2A /* CurrenciesAdapter.swift in Sources */,
 				1938B3EB22E3716400843E2A /* CurrencyTableViewCell.swift in Sources */,
 				1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */,
 				1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */,
 				1962C3DA22E4F782003E957C /* CommonCoordinator.swift in Sources */,
 				19A9A7C422E4BFE900EED646 /* EmptyCurrenciesRateModuleIO.swift in Sources */,
+				AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */,
+				AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */,
+				AFC77D7E22E5F057003AC2D1 /* CurrencyRatePairCoordinator.swift in Sources */,
 				1938B3F522E37F1A00843E2A /* CurrenciesViewController.swift in Sources */,
 				19A9A7BE22E4BD6A00EED646 /* EmptyCurrenciesRateViewController.swift in Sources */,
 				1962C3DF22E4F789003E957C /* AppRouter.swift in Sources */,
 				1938B3FB22E385A800843E2A /* CurrencyEntity.swift in Sources */,
 				1962C3DD22E4F782003E957C /* Router.swift in Sources */,
 				1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */,
+				AFC77D7822E5EAED003AC2D1 /* ModuleFactoryImplementation.swift in Sources */,
 				1962C3DB22E4F782003E957C /* CommonTypealias.swift in Sources */,
 				1938B41C22E38C9C00843E2A /* CurrenciesAssembly.swift in Sources */,
 				1962C3DC22E4F782003E957C /* Presentable.swift in Sources */,
 				1938B3F722E37F8300843E2A /* CurrenciesViewIO.swift in Sources */,
+				AFC77D7622E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift in Sources */,
 				19A9A7CB22E4C29E00EED646 /* ApplicationCoordinator.swift in Sources */,
 				1962C3E222E4F817003E957C /* Coordinator.swift in Sources */,
 			);

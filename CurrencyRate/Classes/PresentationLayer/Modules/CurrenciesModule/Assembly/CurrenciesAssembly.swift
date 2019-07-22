@@ -9,13 +9,13 @@
 import UIKit
 
 struct CurrenciesAssembly {
-    static func makeCurrenciesModule() -> UIViewController? {
+    static func makeCurrenciesModule() -> CurrenciesModuleInput? {
         guard let viewController = UIStoryboard(name: "CurrenciesStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesViewController
             else { return nil }
         
         viewController.output = CurrenciesPresenter(view: viewController, currenciesService: CurrenciesService())
         viewController.adapter = CurrenciesAdapter()
         viewController.adapter.delegate = viewController.output as? CurrenciesAdapterDelegate
-        return viewController
+        return viewController.output as? CurrenciesModuleInput
     }
 }

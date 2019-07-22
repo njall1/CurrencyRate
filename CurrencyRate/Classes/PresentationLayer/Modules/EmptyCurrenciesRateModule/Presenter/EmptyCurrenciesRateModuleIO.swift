@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol EmptyCurrenciesRateModuleInput: AnyObject {
+protocol EmptyCurrenciesRateModuleInput: Presentable {
     func configureModule(completionHandler: @escaping EmptyCallback)
 }

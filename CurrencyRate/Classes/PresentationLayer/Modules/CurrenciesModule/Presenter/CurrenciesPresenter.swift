@@ -9,7 +9,7 @@
 import UIKit
 
 final class CurrenciesPresenter {
-    weak var view: CurrenciesViewInput?
+    weak var view: CurrenciesViewInput!
     var currenciesService: CurenciesServiceInput
     
     private var finishHandler: ((String) -> Void)?
@@ -23,6 +23,10 @@ final class CurrenciesPresenter {
 }
 
 extension CurrenciesPresenter: CurrenciesModuleInput {
+    func toPresent() -> UIViewController? {
+        return self.view as? UIViewController
+    }
+    
     func configureModule(disabledCurrencies: [CurrencyEntity], completionHandler: @escaping (String) -> Void) {
         self.finishHandler = completionHandler
         self.disabledCurrencies = disabledCurrencies
@@ -37,7 +41,7 @@ extension CurrenciesPresenter: CurrenciesViewOutput {
             switch result {
             case .success(let currencies):
                 self.dataSource = currencies
-                self.view?.showCurrencies(currencies.map {
+                self.view.showCurrencies(currencies.map {
                     let alpha: CGFloat = self.isDisabledCurrency(currency: $0) ? 0.3 : 1.0
                     return CurrencyTableViewCell.DisplayItem(thumbnailName: $0.code,
                                                              thumbnailAlpha: alpha,
