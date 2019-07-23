@@ -20,8 +20,8 @@ extension ModuleFactoryImplementation: EmptyCurrenciesRateModuleFactory {
 
 
 extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
-    func makeCurrenciesRateModule(pair: Pair) -> CurrenciesRateModuleInput {
-        guard let module = CurrenciesRateAssembly.makeCurrenciesRateModule(pair: pair)
+    func makeCurrenciesRateModule(pairs: [Pair]) -> CurrenciesRateModuleInput {
+        guard let module = CurrenciesRateAssembly.makeCurrenciesRateModule(pairs: pairs)
             else { fatalError("DI Error for CurrenciesRateAssembly.") }
         return module
     }

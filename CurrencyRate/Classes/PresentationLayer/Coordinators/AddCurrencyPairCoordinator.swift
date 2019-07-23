@@ -15,19 +15,21 @@ protocol AddCurrencyPairCoordinatorOutput: Finishable {
 final class AddCurrencyPairCoordinator: CommonCoordinator {
     private var modulesFactory: CurrenciesModuleFactory
     private var router: Router
+    private var disabledCurrencies: [CurrencyEntity]
     
     var finishFlow: EmptyCallback?
     var selectedPair: PairCallback?
     
-    init(router: Router, currenciesModuleFactory: CurrenciesModuleFactory) {
+    init(router: Router, currenciesModuleFactory: CurrenciesModuleFactory, disabledCurrencies: [CurrencyEntity]) {
         self.router = router
         self.modulesFactory = currenciesModuleFactory
+        self.disabledCurrencies = disabledCurrencies
     }
     
     override func start() {
         super.start()
         
-        let module = self.modulesFactory.makeCurrencyModule(disabledCurrencies: [])
+        let module = self.modulesFactory.makeCurrencyModule(disabledCurrencies: self.disabledCurrencies)
         
         module.selectedCurrency = { [weak self] currency in
             guard let self = self else { return }

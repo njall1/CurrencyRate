@@ -9,14 +9,16 @@
 import UIKit
 
 final class CurrenciesRatePresenter {
-    weak var view: CurrenciesRateViewInput!
-    private var storage: Pair
+    private weak var view: CurrenciesRateViewInput!
+    private var storage: [Pair]
+    private var pairService: PairsServiceInput
     
     var finishFlow: EmptyCallback?
     
-    init(view: CurrenciesRateViewInput, pair: Pair) {
+    init(view: CurrenciesRateViewInput, pairs: [Pair], pairService: PairsServiceInput) {
         self.view = view
-        self.storage = pair
+        self.storage = pairs
+        self.pairService = pairService
     }
 }
 
@@ -28,7 +30,15 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
 
 extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
     func viewDidLoad() {
-        self.view.showPairs([])
+        self.pairService.fetchPairs(pairs: self.storage) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print("Error: \(error)")
+            case .success(let list):
+                print("Success: \(list)")
+                self?.view.showPairs([])
+            }
+        }
     }
     
     func userDidClickAddPair() {

@@ -10,12 +10,12 @@ import UIKit
 
 final class ApplicationCoordinator: CommonCoordinator {
     struct Storage {
-        let pair: Pair?
+        let pairs: [Pair]
     }
     
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
-    private var storage = Storage(pair: nil)
+    private var storage = Storage(pairs: [])
     
     init(router: Router,
          coordinatorFactory: CoordinatorFactory)
@@ -26,7 +26,7 @@ final class ApplicationCoordinator: CommonCoordinator {
     
     override func start() {
         super.start()
-        let coordinator = self.coordinatorFactory.makeCurrencyRate(router: self.router, pair: self.storage.pair)
+        let coordinator = self.coordinatorFactory.makeCurrencyRate(router: self.router, pairs: self.storage.pairs)
         
         self.runFlow(coordinator: coordinator) { [weak self] in
             self?.runAddCurrenciesPair()
@@ -36,10 +36,17 @@ final class ApplicationCoordinator: CommonCoordinator {
     }
     
     private func runAddCurrenciesPair() {
-        let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router)
+        let disabledCurrencies = self.storage.pairs.map { $0.0 }
+        let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router, disabledCurrencies: disabledCurrencies)
         
         coordinator.selectedPair = { [weak self] pair in
-            self?.storage = Storage(pair: pair)
+            guard let self = self else { return }
+            
+            if self.storage.pairs.isEmpty {
+                self.storage = Storage(pairs: [pair])
+            } else {
+                self.storage = Storage(pairs: self.storage.pairs + [pair])
+            }
         }
         
         coordinator.runFlow(coordinator: coordinator) { [weak self] in
