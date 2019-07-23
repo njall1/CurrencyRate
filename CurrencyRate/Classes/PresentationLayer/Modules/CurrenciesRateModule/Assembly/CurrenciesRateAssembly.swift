@@ -13,16 +13,16 @@ struct CurrenciesRateAssembly {
         guard let viewController = UIStoryboard(name: "CurrenciesRateStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesRateViewController
             else { return nil }
         
-        let pairService: PairsServiceInput? = NetworkServiceProvider.sharedInstance.tryGetService()
+        let pairService: PairsServiceInput? = NetworkServicesProvider.sharedInstance.tryGetService()
         if pairService == nil {
             let pairService: PairsServiceInput = PairsService()
-            NetworkServiceProvider.sharedInstance.registerService(service: pairService)
+            NetworkServicesProvider.sharedInstance.registerService(service: pairService)
         }
         
         viewController.adapter = PairAdapter()
         viewController.output = CurrenciesRatePresenter(view: viewController,
                                                         pairs: pairs,
-                                                        pairService: NetworkServiceProvider.sharedInstance.getService())
+                                                        pairService: NetworkServicesProvider.sharedInstance.getService())
        
         return viewController.output as? CurrenciesRateModuleInput
     }

@@ -10,11 +10,6 @@ import UIKit
 
 class EmptyCurrenciesRateViewController: UIViewController {
     var output: EmptyCurrenciesRateViewOutput!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 }
 
 private extension EmptyCurrenciesRateViewController {

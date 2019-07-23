@@ -35,8 +35,10 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
             case .failure(let error):
                 print("Error: \(error)")
             case .success(let list):
-                print("Success: \(list)")
-                self?.view.showPairs([])
+                self?.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1 " + $0.pair.0.code,
+                                                                              leftSubtitle: "British Pound",
+                                                                              rightTitle: String($0.value),
+                                                                              rightSubtitle: "USDollar " + $0.pair.1.code) })
             }
         }
     }

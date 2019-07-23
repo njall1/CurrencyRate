@@ -27,6 +27,7 @@
 		1962C3E422E625B1003E957C /* Finishable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3E322E625B1003E957C /* Finishable.swift */; };
 		1962C3E622E64790003E957C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3E522E64790003E957C /* Constants.swift */; };
 		1962C3E822E64C0E003E957C /* CurrenciesModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3E722E64C0E003E957C /* CurrenciesModuleFactory.swift */; };
+		1962C3EB22E78F2B003E957C /* PairEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3EA22E78F2B003E957C /* PairEntity.swift */; };
 		1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328722E1071700DAB4AD /* AppDelegate.swift */; };
 		1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1986328E22E1071A00DAB4AD /* Assets.xcassets */; };
 		1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */; };
@@ -44,7 +45,7 @@
 		AF0CDAF422E72CA8003FA00E /* PairTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0CDAF222E72CA8003FA00E /* PairTableViewCell.xib */; };
 		AF0CDB0522E737E9003FA00E /* PairAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB0422E737E9003FA00E /* PairAdapter.swift */; };
 		AF0CDB0F22E758CC003FA00E /* PairsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB0E22E758CC003FA00E /* PairsService.swift */; };
-		AF0CDB1122E760B5003FA00E /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB1022E760B5003FA00E /* NetworkServiceProvider.swift */; };
+		AF0CDB1122E760B5003FA00E /* NetworkServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB1022E760B5003FA00E /* NetworkServicesProvider.swift */; };
 		AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */; };
 		AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */; };
 		AFC77D7622E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */; };
@@ -98,6 +99,7 @@
 		1962C3E322E625B1003E957C /* Finishable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finishable.swift; sourceTree = "<group>"; };
 		1962C3E522E64790003E957C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1962C3E722E64C0E003E957C /* CurrenciesModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModuleFactory.swift; sourceTree = "<group>"; };
+		1962C3EA22E78F2B003E957C /* PairEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairEntity.swift; sourceTree = "<group>"; };
 		1986328422E1071700DAB4AD /* CurrencyRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986328722E1071700DAB4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1986328E22E1071A00DAB4AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		AF0CDAF222E72CA8003FA00E /* PairTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairTableViewCell.xib; sourceTree = "<group>"; };
 		AF0CDB0422E737E9003FA00E /* PairAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairAdapter.swift; sourceTree = "<group>"; };
 		AF0CDB0E22E758CC003FA00E /* PairsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsService.swift; sourceTree = "<group>"; };
-		AF0CDB1022E760B5003FA00E /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
+		AF0CDB1022E760B5003FA00E /* NetworkServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesProvider.swift; sourceTree = "<group>"; };
 		AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateAssembly.swift; sourceTree = "<group>"; };
 		AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateModuleFactory.swift; sourceTree = "<group>"; };
@@ -203,7 +205,6 @@
 		1938B3DF22E18D6100843E2A /* BussinesLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
-				AF0CDB1022E760B5003FA00E /* NetworkServiceProvider.swift */,
 				1938B3FC22E3862C00843E2A /* CurrenciesService.swift */,
 				AF0CDB0E22E758CC003FA00E /* PairsService.swift */,
 			);
@@ -230,6 +231,7 @@
 		1938B3E322E18DCC00843E2A /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1962C3EC22E79BC7003E957C /* Network */,
 				1962C3E022E4F7D8003E957C /* Coordinator */,
 				1962C3D722E4F782003E957C /* CommonTypealias.swift */,
 			);
@@ -312,6 +314,22 @@
 				1962C3E322E625B1003E957C /* Finishable.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1962C3E922E78F1B003E957C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1962C3EA22E78F2B003E957C /* PairEntity.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1962C3EC22E79BC7003E957C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AF0CDB1022E760B5003FA00E /* NetworkServicesProvider.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		1986327B22E1071700DAB4AD = {
@@ -433,6 +451,7 @@
 		AFC77D5A22E5DD25003AC2D1 /* CurrenciesRateModule */ = {
 			isa = PBXGroup;
 			children = (
+				1962C3E922E78F1B003E957C /* Model */,
 				AFC77D5F22E5DE68003AC2D1 /* Assembly */,
 				AFC77D5C22E5DE04003AC2D1 /* View */,
 				AFC77D5D22E5DE09003AC2D1 /* Presenter */,
@@ -649,7 +668,7 @@
 				1962C3E422E625B1003E957C /* Finishable.swift in Sources */,
 				1962C3DA22E4F782003E957C /* CommonCoordinator.swift in Sources */,
 				19A9A7C422E4BFE900EED646 /* EmptyCurrenciesRateModuleIO.swift in Sources */,
-				AF0CDB1122E760B5003FA00E /* NetworkServiceProvider.swift in Sources */,
+				AF0CDB1122E760B5003FA00E /* NetworkServicesProvider.swift in Sources */,
 				AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */,
 				AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */,
 				AFC77D9422E610D3003AC2D1 /* CurrenciesRatePresenter.swift in Sources */,
@@ -659,6 +678,7 @@
 				19A9A7BE22E4BD6A00EED646 /* EmptyCurrenciesRateViewController.swift in Sources */,
 				1962C3DF22E4F789003E957C /* AppRouter.swift in Sources */,
 				1938B3FB22E385A800843E2A /* CurrencyEntity.swift in Sources */,
+				1962C3EB22E78F2B003E957C /* PairEntity.swift in Sources */,
 				1962C3DD22E4F782003E957C /* Router.swift in Sources */,
 				1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */,
 				AFC77D9C22E61270003AC2D1 /* CurrenciesRateAssembly.swift in Sources */,

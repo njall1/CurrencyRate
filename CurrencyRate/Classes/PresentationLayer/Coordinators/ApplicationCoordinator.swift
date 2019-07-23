@@ -36,8 +36,11 @@ final class ApplicationCoordinator: CommonCoordinator {
     }
     
     private func runAddCurrenciesPair() {
+        // TODO: Make correct filter for disabled currencies & move it to module presenter
         let disabledCurrencies = self.storage.pairs.map { $0.0 }
-        let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router, disabledCurrencies: disabledCurrencies)
+        
+        let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router,
+                                                                      disabledCurrencies: disabledCurrencies)
         
         coordinator.selectedPair = { [weak self] pair in
             guard let self = self else { return }

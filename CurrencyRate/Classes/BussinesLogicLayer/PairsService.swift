@@ -8,21 +8,27 @@
 
 import Foundation
 
+struct ResponseModel: Codable {
+    let rates: [String: Float]?
+}
+
 struct InternetError: Error { }
 
 protocol PairsServiceInput {
-    func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[CurrencyEntity], Error>) -> Void)
+    func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void)
 }
 
 final class PairsService: PairsServiceInput {
     var dataTask: URLSessionDataTask?
     let defaultSession = URLSession(configuration: .default)
     
-    func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[CurrencyEntity], Error>) -> Void) {
+    func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void) {
         self.dataTask?.cancel()
         
+        let query = pairs.map { "pairs=" + $0.0.code + $0.1.code }.joined(separator:"&")
+        
         var urlComponents = URLComponents(string: "https://europe-west1-revolut-230009.cloudfunctions.net/revolut-ios")
-        urlComponents?.query = "pairs=USDGBP&pairs=GBPUSD"
+        urlComponents?.query = query
         
         guard let url = urlComponents?.url
             else {
@@ -38,8 +44,26 @@ final class PairsService: PairsServiceInput {
                     completionHandler(.failure(error))
                 }
             } else {
-                DispatchQueue.main.async {
-                    completionHandler(.success([]))
+                guard let dataResponse = data,
+                    error == nil else {
+                        print(error?.localizedDescription ?? "Response Error")
+                        return }
+                do {
+                    let jsonResponse = try JSONSerialization.jsonObject(with:
+                    dataResponse, options: []) as? [String: Double]
+                    
+                    let response = pairs.map { pair -> PairEntity in
+                        let code = pair.0.code + pair.1.code
+                        return PairEntity(pair: pair, code: code, value: jsonResponse?[code] ?? 0.0)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        completionHandler(.success(response))
+                    }
+                } catch let parsingError {
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(parsingError))
+                    }
                 }
             }
         }
