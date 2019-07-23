@@ -40,6 +40,9 @@
 		19A9A7CB22E4C29E00EED646 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */; };
 		AF0CD41A22E61424006EFC82 /* CurrenciesRateModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CD41922E61424006EFC82 /* CurrenciesRateModuleIO.swift */; };
 		AF0CD41C22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CD41B22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift */; };
+		AF0CDAF322E72CA8003FA00E /* PairTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDAF122E72CA8003FA00E /* PairTableViewCell.swift */; };
+		AF0CDAF422E72CA8003FA00E /* PairTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0CDAF222E72CA8003FA00E /* PairTableViewCell.xib */; };
+		AF0CDB0522E737E9003FA00E /* PairAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB0422E737E9003FA00E /* PairAdapter.swift */; };
 		AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */; };
 		AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */; };
 		AFC77D7622E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */; };
@@ -112,6 +115,9 @@
 		19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		AF0CD41922E61424006EFC82 /* CurrenciesRateModuleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateModuleIO.swift; sourceTree = "<group>"; };
 		AF0CD41B22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateModuleFactory.swift; sourceTree = "<group>"; };
+		AF0CDAF122E72CA8003FA00E /* PairTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairTableViewCell.swift; sourceTree = "<group>"; };
+		AF0CDAF222E72CA8003FA00E /* PairTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairTableViewCell.xib; sourceTree = "<group>"; };
+		AF0CDB0422E737E9003FA00E /* PairAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairAdapter.swift; sourceTree = "<group>"; };
 		AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateAssembly.swift; sourceTree = "<group>"; };
 		AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateModuleFactory.swift; sourceTree = "<group>"; };
@@ -390,6 +396,23 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		AF0CDAF022E72C82003FA00E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AF0CDAF122E72CA8003FA00E /* PairTableViewCell.swift */,
+				AF0CDAF222E72CA8003FA00E /* PairTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AF0CDB0322E737CC003FA00E /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				AF0CDB0422E737E9003FA00E /* PairAdapter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		AFC77D5922E5DD15003AC2D1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,23 +428,17 @@
 			isa = PBXGroup;
 			children = (
 				AFC77D5F22E5DE68003AC2D1 /* Assembly */,
-				AFC77D5B22E5DDF7003AC2D1 /* Model */,
 				AFC77D5C22E5DE04003AC2D1 /* View */,
 				AFC77D5D22E5DE09003AC2D1 /* Presenter */,
 			);
 			path = CurrenciesRateModule;
 			sourceTree = "<group>";
 		};
-		AFC77D5B22E5DDF7003AC2D1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		AFC77D5C22E5DE04003AC2D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AF0CDB0322E737CC003FA00E /* Adapters */,
+				AF0CDAF022E72C82003FA00E /* Cells */,
 				AFC77D9722E6114B003AC2D1 /* CurrenciesRateViewIO.swift */,
 				AFC77D9522E610FF003AC2D1 /* CurrenciesRateViewController.swift */,
 				AFC77D9122E61086003AC2D1 /* CurrenciesRateStoryboard.storyboard */,
@@ -583,6 +600,7 @@
 				1938B3EC22E3716400843E2A /* CurrencyTableViewCell.xib in Resources */,
 				19A9A7BC22E4721800EED646 /* EmptyCurrenciesRateStoryboard.storyboard in Resources */,
 				AFC77D8022E5F337003AC2D1 /* Main.storyboard in Resources */,
+				AF0CDAF422E72CA8003FA00E /* PairTableViewCell.xib in Resources */,
 				1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */,
 				1938B3F322E37E9800843E2A /* CurrenciesStoryboard.storyboard in Resources */,
 			);
@@ -620,6 +638,7 @@
 				AF0CD41C22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift in Sources */,
 				1938B3EB22E3716400843E2A /* CurrencyTableViewCell.swift in Sources */,
 				1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */,
+				AF0CDAF322E72CA8003FA00E /* PairTableViewCell.swift in Sources */,
 				1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */,
 				1962C3E422E625B1003E957C /* Finishable.swift in Sources */,
 				1962C3DA22E4F782003E957C /* CommonCoordinator.swift in Sources */,
@@ -645,6 +664,7 @@
 				19A9A7CB22E4C29E00EED646 /* ApplicationCoordinator.swift in Sources */,
 				1962C3E222E4F817003E957C /* Coordinator.swift in Sources */,
 				AFC77D9622E610FF003AC2D1 /* CurrenciesRateViewController.swift in Sources */,
+				AF0CDB0522E737E9003FA00E /* PairAdapter.swift in Sources */,
 				1962C3E622E64790003E957C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

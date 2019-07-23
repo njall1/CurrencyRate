@@ -13,8 +13,9 @@ struct CurrenciesRateAssembly {
         guard let viewController = UIStoryboard(name: "CurrenciesRateStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesRateViewController
             else { return nil }
         
+        viewController.adapter = PairAdapter()
         viewController.output = CurrenciesRatePresenter(view: viewController, pair: pair)
-        
+       
         return viewController.output as? CurrenciesRateModuleInput
     }
 }

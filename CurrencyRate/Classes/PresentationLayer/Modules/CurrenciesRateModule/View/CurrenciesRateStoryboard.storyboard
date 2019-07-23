@@ -17,13 +17,56 @@
                     <view key="view" contentMode="scaleToFill" id="5Ji-pe-TaK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A5K-5G-ci1">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="t47-bH-vzH">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-gP-4DA">
+                                            <rect key="frame" x="16" y="16" width="203" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="qT0-e2-Qtz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <state key="normal" title="  Add currency pair" image="Plus">
+                                                <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didClickPlusButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="TIY-7Y-KOx"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.86666666670000003" blue="0.1764705882" alpha="1" colorSpace="deviceRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="RkO-gP-4DA" firstAttribute="leading" secondItem="t47-bH-vzH" secondAttribute="leading" constant="16" id="Ns8-mM-Sm4"/>
+                                        <constraint firstItem="RkO-gP-4DA" firstAttribute="top" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="cYi-Eo-o33"/>
+                                        <constraint firstItem="RkO-gP-4DA" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="uCF-gA-C6v"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A5K-5G-ci1" firstAttribute="top" secondItem="TwI-8q-7Yc" secondAttribute="top" id="Aax-28-zEd"/>
+                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="bottom" secondItem="A5K-5G-ci1" secondAttribute="bottom" id="GXy-Ki-fT0"/>
+                            <constraint firstItem="A5K-5G-ci1" firstAttribute="leading" secondItem="TwI-8q-7Yc" secondAttribute="leading" id="Mka-xl-LYT"/>
+                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="trailing" secondItem="A5K-5G-ci1" secondAttribute="trailing" id="WWy-KM-awn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TwI-8q-7Yc"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="A5K-5G-ci1" id="RFG-BL-DyP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGW-wN-Vk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="133"/>
+            <point key="canvasLocation" x="195" y="132.04225352112675"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Plus" width="40" height="40"/>
+    </resources>
 </document>

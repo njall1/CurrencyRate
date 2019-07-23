@@ -9,15 +9,27 @@
 import UIKit
 
 class CurrenciesRateViewController: UIViewController {
+    @IBOutlet private var tableView: UITableView!
     var output: CurrenciesRateViewOutput!
+    var adapter: PairAdapter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.adapter.tableView = self.tableView
+        self.output.viewDidLoad()
     }
 }
 
 extension CurrenciesRateViewController: CurrenciesRateViewInput {
-    
+    func showPairs(_ list: [PairTableViewCell.DisplayItem]) {
+        self.adapter.reloadData(dataSource: list)
+    }
+}
+
+// MARK: - Actions
+
+extension CurrenciesRateViewController {
+    @IBAction private func didClickPlusButton(_ sender: UIButton) {
+        self.output.userDidClickAddPair()
+    }
 }

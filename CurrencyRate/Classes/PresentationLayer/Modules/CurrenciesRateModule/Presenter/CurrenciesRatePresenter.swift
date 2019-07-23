@@ -26,4 +26,12 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
     }
 }
 
-extension CurrenciesRatePresenter: CurrenciesRateViewOutput {}
+extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
+    func viewDidLoad() {
+        self.view.showPairs([])
+    }
+    
+    func userDidClickAddPair() {
+        self.finishFlow?()
+    }
+}

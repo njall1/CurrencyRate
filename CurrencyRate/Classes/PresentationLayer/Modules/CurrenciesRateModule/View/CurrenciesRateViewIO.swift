@@ -9,9 +9,10 @@
 import Foundation
 
 protocol CurrenciesRateViewInput: AnyObject {
-    
+    func showPairs(_ list: [PairTableViewCell.DisplayItem])
 }
 
 protocol CurrenciesRateViewOutput: AnyObject {
-    
+    func viewDidLoad()
+    func userDidClickAddPair()
 }
