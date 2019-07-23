@@ -58,7 +58,7 @@ extension CurrenciesPresenter: CurrenciesViewOutput {
 }
 
 extension CurrenciesPresenter: CurrenciesAdapterDelegate {
-    func didDeselectRowAt(index: Int) {
+    func didSelectRowAt(index: Int) {
         guard !self.isDisabledCurrency(currency: self.dataSource[index])
             else { return }
         

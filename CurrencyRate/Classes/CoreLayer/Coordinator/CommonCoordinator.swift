@@ -12,8 +12,20 @@ class CommonCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
     
-    func start() { }
+    // Please override start
+    func start() {}
     
+    func runFlow(coordinator: Coordinator & Finishable, opening: @escaping EmptyCallback) {
+        coordinator.finishFlow = {
+            opening()
+            self.removeDependency(coordinator)
+        }
+        
+        addDependency(coordinator)
+    }
+}
+
+private extension CommonCoordinator {
     func addDependency(_ coordinator: Coordinator) {
         guard !self.childCoordinators.contains(where: { $0 === coordinator }) else { return }
         self.childCoordinators.append(coordinator)

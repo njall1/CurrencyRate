@@ -8,10 +8,16 @@
 
 import Foundation
 
+protocol AddCurrencyPairCoordinatorOutput: Finishable {
+    var selectedPair: PairCallback? { get set }
+}
+
 final class AddCurrencyPairCoordinator: CommonCoordinator {
+    private var modulesFactory: CurrenciesModuleFactory
+    private var router: Router
+    
     var finishFlow: EmptyCallback?
-    var modulesFactory: CurrenciesModuleFactory
-    var router: Router
+    var selectedPair: PairCallback?
     
     init(router: Router, currenciesModuleFactory: CurrenciesModuleFactory) {
         self.router = router
@@ -23,16 +29,24 @@ final class AddCurrencyPairCoordinator: CommonCoordinator {
         
         let module = self.modulesFactory.makeCurrencyModule(disabledCurrencies: [])
         
-        module.finishFlow = { [weak self] in
-            self?.finishFlow?()
-        }
+        module.selectedCurrency = { [weak self] currency in
+            guard let self = self else { return }
+            
+            let pairModule = self.modulesFactory.makeCurrencyModule(disabledCurrencies: [currency])
         
-        module.selectedCurrency = { currency in
-            print("Selected Currency: \(currency.code)")
+            pairModule.selectedCurrency = { [weak self] secondCurrency in
+                self?.selectedPair?((currency, secondCurrency))
+            }
+            
+            pairModule.finishFlow = { [weak self] in
+                self?.finishFlow?()
+            }
+        
+            self.router.push(module: pairModule)
         }
         
         self.router.setRootModule(module)
     }
 }
 
-extension AddCurrencyPairCoordinator: Finishable {}
+extension AddCurrencyPairCoordinator: AddCurrencyPairCoordinatorOutput {}

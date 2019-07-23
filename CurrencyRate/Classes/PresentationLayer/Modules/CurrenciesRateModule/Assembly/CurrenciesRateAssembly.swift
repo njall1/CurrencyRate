@@ -9,11 +9,12 @@
 import UIKit
 
 struct CurrenciesRateAssembly {
-    static func makeCurrenciesRateModule() -> CurrenciesRateModuleInput? {
+    static func makeCurrenciesRateModule(pair: Pair) -> CurrenciesRateModuleInput? {
         guard let viewController = UIStoryboard(name: "CurrenciesRateStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesRateViewController
             else { return nil }
         
-        viewController.output = CurrenciesRatePresenter(view: viewController)
+        viewController.output = CurrenciesRatePresenter(view: viewController, pair: pair)
+        
         return viewController.output as? CurrenciesRateModuleInput
     }
 }

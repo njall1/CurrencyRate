@@ -10,11 +10,13 @@ import UIKit
 
 final class CurrenciesRatePresenter {
     weak var view: CurrenciesRateViewInput!
+    private var storage: Pair
     
     var finishFlow: EmptyCallback?
     
-    init(view: CurrenciesRateViewInput) {
+    init(view: CurrenciesRateViewInput, pair: Pair) {
         self.view = view
+        self.storage = pair
     }
 }
 

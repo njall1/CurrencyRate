@@ -10,4 +10,5 @@ import Foundation
 
 protocol Coordinator: AnyObject {
     func start()
+    func runFlow(coordinator: Coordinator & Finishable, opening: @escaping EmptyCallback)
 }

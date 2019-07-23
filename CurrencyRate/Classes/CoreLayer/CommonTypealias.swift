@@ -6,5 +6,7 @@
 //  Copyright © 2019 Vitaliy Rusinov. All rights reserved.
 //
 
-typealias EmptyCallback = (() -> Void)
-typealias CurrencyCallback = ((_ currency: CurrencyEntity) -> Void)
+typealias EmptyCallback = () -> Void
+typealias CurrencyCallback = (_ currency: CurrencyEntity) -> Void
+typealias PairCallback = (_ pair: Pair) -> Void
+typealias Pair = (CurrencyEntity, CurrencyEntity)

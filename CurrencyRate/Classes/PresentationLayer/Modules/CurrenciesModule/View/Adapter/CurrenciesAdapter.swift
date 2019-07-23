@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CurrenciesAdapterDelegate: AnyObject {
-    func didDeselectRowAt(index: Int)
+    func didSelectRowAt(index: Int)
 }
 
 final class CurrenciesAdapter: NSObject {
@@ -31,9 +31,9 @@ final class CurrenciesAdapter: NSObject {
 }
 
 extension CurrenciesAdapter: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.delegate?.didDeselectRowAt(index: indexPath.row)
+        self.delegate?.didSelectRowAt(index: indexPath.row)
     }
 }
 

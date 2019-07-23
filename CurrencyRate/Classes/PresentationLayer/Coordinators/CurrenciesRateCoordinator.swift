@@ -10,23 +10,24 @@ import Foundation
 
 protocol CurrencyRateCoordinatorOutput: Finishable { }
 
-final class CurrencyRateCoordinator: CommonCoordinator, CurrencyRateCoordinatorOutput {
+final class CurrenciesRateCoordinator: CommonCoordinator, CurrencyRateCoordinatorOutput {
     struct Storage {
-        let currencies: [CurrencyEntity]
-        static let empty = Storage(currencies: [])
+        let pair: Pair?
     }
     
     private let currenciesRateModuleFactory: CurrenciesRateModuleFactory
     private let emptyCurrenciesRateModuleFactory: EmptyCurrenciesRateModuleFactory
     private let router: Router
-    private var storage = Storage.empty
+    private var storage = Storage(pair: nil)
     
     var finishFlow: EmptyCallback?
     
     init(router: Router,
          emptyCurrenciesRateModuleFactory: EmptyCurrenciesRateModuleFactory,
-         currenciesRateModuleFactory: CurrenciesRateModuleFactory)
+         currenciesRateModuleFactory: CurrenciesRateModuleFactory,
+         pair: Pair?)
     {
+        self.storage = Storage(pair: pair)
         self.router = router
         self.emptyCurrenciesRateModuleFactory = emptyCurrenciesRateModuleFactory
         self.currenciesRateModuleFactory = currenciesRateModuleFactory
@@ -36,10 +37,10 @@ final class CurrencyRateCoordinator: CommonCoordinator, CurrencyRateCoordinatorO
         super.start()
 
         let module: Presentable & Finishable
-        if self.storage.currencies.isEmpty {
-            module = self.emptyCurrenciesRateModuleFactory.makeEmptyCurrenciesRateModule()
+        if let pair = self.storage.pair {
+            module = self.currenciesRateModuleFactory.makeCurrenciesRateModule(pair: pair)
         } else {
-            module = self.currenciesRateModuleFactory.makeCurrenciesRateModule()
+            module = self.emptyCurrenciesRateModuleFactory.makeEmptyCurrenciesRateModule()
         }
         
         module.finishFlow = { [weak self] in
