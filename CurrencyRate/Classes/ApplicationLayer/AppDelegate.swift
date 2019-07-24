@@ -32,9 +32,13 @@ private extension AppDelegate {
     }
     
     func registerServices() {
-        let pairService: PairsServiceInput = PairsService()
-        NetworkServicesProvider.sharedInstance.registerService(service: pairService)
+        let dataTaskManager: DataTaskManagerInput = DataTaskManager()
+        ServiceLocator.sharedInstance.registerService(service: dataTaskManager)
+    
+        let pairServiceInput: PairsServiceInput = PairsService()
+        ServiceLocator.sharedInstance.registerService(service: pairServiceInput)
+        
         let currenciesService: CurenciesServiceInput = CurrenciesService()
-        NetworkServicesProvider.sharedInstance.registerService(service: currenciesService)
+        ServiceLocator.sharedInstance.registerService(service: currenciesService)
     }
 }

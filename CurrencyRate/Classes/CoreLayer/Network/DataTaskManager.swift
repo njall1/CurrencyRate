@@ -10,7 +10,15 @@ import Foundation
 
 struct AppError: Error { }
 
-struct ApiRequest {
+struct ApiRequest: Hashable, Equatable {
+    static func == (lhs: ApiRequest, rhs: ApiRequest) -> Bool {
+        return lhs.path == rhs.path
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(path)
+    }
+    
     let path: String
     let params: [(String, AnyHashable)]
 }
@@ -20,20 +28,18 @@ protocol DataTaskManagerInput {
 }
 
 final class DataTaskManager: DataTaskManagerInput {
-    var dataTask: URLSessionDataTask?
+    private var dataTaskDictionary = [ApiRequest: URLSessionDataTask?]()
     let defaultSession = URLSession(configuration: .default)
     
     func perform(request: ApiRequest, completionHandler: @escaping DataTaskCallback) {
-        self.dataTask?.cancel()
+       self.dataTaskDictionary[request]??.cancel()
 
         var urlComponents = URLComponents(string: request.path)
         urlComponents?.query = self.makeQuery(params: request.params)
         
         guard let url = urlComponents?.url else { completionHandler(.failure(AppError())); return }
         
-        self.dataTask = self.defaultSession.dataTask(with: url) { data, response, error in
-            defer { self.dataTask = nil }
-            
+        self.dataTaskDictionary[request] = self.defaultSession.dataTask(with: url) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
                     completionHandler(.failure(error))
@@ -59,7 +65,7 @@ final class DataTaskManager: DataTaskManagerInput {
             }
         }
         
-        self.dataTask?.resume()
+        self.dataTaskDictionary[request]??.resume()
     }
 }
 

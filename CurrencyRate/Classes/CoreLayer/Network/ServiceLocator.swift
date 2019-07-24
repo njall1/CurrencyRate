@@ -8,9 +8,9 @@
 
 import Foundation
 
-public final class NetworkServicesProvider {
+public final class ServiceLocator {
     
-    public static let sharedInstance = NetworkServicesProvider()
+    public static let sharedInstance = ServiceLocator()
     
     private init() { }
     

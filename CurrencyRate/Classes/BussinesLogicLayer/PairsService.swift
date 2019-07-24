@@ -13,7 +13,7 @@ protocol PairsServiceInput {
 }
 
 final class PairsService: CommonNetworkService, PairsServiceInput {
-    var dataTaskManager: DataTaskManagerInput = DataTaskManager()
+    var dataTaskManager: DataTaskManagerInput = ServiceLocator.sharedInstance.getService()
     
     func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void) {
         let params: [Param] = pairs.reduce(into: [Param]()) { $0.append(("pairs" ,$1.0.code + $1.1.code)) }

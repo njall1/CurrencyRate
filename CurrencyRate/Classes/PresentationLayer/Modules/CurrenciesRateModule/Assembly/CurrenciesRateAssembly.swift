@@ -16,7 +16,7 @@ struct CurrenciesRateAssembly {
         viewController.adapter = PairAdapter()
         viewController.output = CurrenciesRatePresenter(view: viewController,
                                                         pairs: pairs,
-                                                        pairService: NetworkServicesProvider.sharedInstance.getService())
+                                                        pairService: ServiceLocator.sharedInstance.getService())
        
         return viewController.output as? CurrenciesRateModuleInput
     }

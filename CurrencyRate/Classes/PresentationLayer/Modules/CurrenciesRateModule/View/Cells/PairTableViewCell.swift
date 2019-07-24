@@ -12,7 +12,7 @@ class PairTableViewCell: UITableViewCell {
     struct DisplayItem {
         let leftTitle: String
         let leftSubtitle: String
-        let rightTitle: String
+        let rightTitle: NSAttributedString
         let rightSubtitle: String
     }
     
@@ -34,7 +34,7 @@ class PairTableViewCell: UITableViewCell {
     
     func configure(displayItem: DisplayItem) {
         self.leftTitleLabel.text = displayItem.leftTitle
-        self.rightTitleLabel.text = displayItem.rightTitle
+        self.rightTitleLabel.attributedText = displayItem.rightTitle
         self.leftSubtitleLabel.text = displayItem.leftSubtitle
         self.rightSubtitleLabel.text = displayItem.rightSubtitle
     }

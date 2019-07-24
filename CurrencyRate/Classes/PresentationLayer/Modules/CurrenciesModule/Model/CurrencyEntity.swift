@@ -10,4 +10,5 @@ import Foundation
 
 struct CurrencyEntity {
     let code: String
+    let name: String
 }
