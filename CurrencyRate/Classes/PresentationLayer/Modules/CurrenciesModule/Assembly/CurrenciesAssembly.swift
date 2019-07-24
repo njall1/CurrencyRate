@@ -13,7 +13,7 @@ struct CurrenciesAssembly {
         guard let viewController = UIStoryboard(name: "CurrenciesStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesViewController
             else { return nil }
         
-        viewController.output = CurrenciesPresenter(view: viewController, currenciesService: CurrenciesService())
+        viewController.output = CurrenciesPresenter(view: viewController, currenciesService: NetworkServicesProvider.sharedInstance.getService())
         viewController.adapter = CurrenciesAdapter()
         viewController.adapter.delegate = viewController.output as? CurrenciesAdapterDelegate
         return viewController.output as? CurrenciesModuleInput
