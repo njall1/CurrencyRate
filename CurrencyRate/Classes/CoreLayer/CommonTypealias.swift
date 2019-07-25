@@ -10,6 +10,3 @@ typealias EmptyCallback = () -> Void
 typealias CurrencyCallback = (_ currency: CurrencyEntity) -> Void
 typealias PairCallback = (_ pair: Pair) -> Void
 typealias Pair = (CurrencyEntity, CurrencyEntity)
-typealias Param = (String, AnyHashable)
-typealias JSON = [String: AnyHashable]
-typealias DataTaskCallback = (Result<JSON?, Error>) -> Void

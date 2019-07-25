@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CommonNetworkService {
+protocol Networkable {
     var dataTaskManager: DataTaskManagerInput { get set }
 }
 

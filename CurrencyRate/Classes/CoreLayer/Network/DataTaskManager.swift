@@ -8,6 +8,10 @@
 
 import Foundation
 
+typealias Param = (String, AnyHashable)
+typealias JSON = [String: AnyHashable]
+typealias DataTaskCallback = (Result<JSON?, Error>) -> Void
+
 struct AppError: Error { }
 
 struct ApiRequest: Hashable, Equatable {
@@ -20,7 +24,7 @@ struct ApiRequest: Hashable, Equatable {
     }
     
     let path: String
-    let params: [(String, AnyHashable)]
+    let params: [Param]
 }
 
 protocol DataTaskManagerInput {
@@ -37,7 +41,12 @@ final class DataTaskManager: DataTaskManagerInput {
         var urlComponents = URLComponents(string: request.path)
         urlComponents?.query = self.makeQuery(params: request.params)
         
-        guard let url = urlComponents?.url else { completionHandler(.failure(AppError())); return }
+        guard let url = urlComponents?.url else {
+            DispatchQueue.main.async {
+                completionHandler(.failure(AppError()))
+            }
+            return
+        }
         
         self.dataTaskDictionary[request] = self.defaultSession.dataTask(with: url) { data, response, error in
             if let error = error {

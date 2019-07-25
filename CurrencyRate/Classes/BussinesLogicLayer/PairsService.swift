@@ -12,7 +12,7 @@ protocol PairsServiceInput {
     func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void)
 }
 
-final class PairsService: CommonNetworkService, PairsServiceInput {
+final class PairsService: Networkable, PairsServiceInput {
     var dataTaskManager: DataTaskManagerInput = ServiceLocator.sharedInstance.getService()
     
     func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void) {

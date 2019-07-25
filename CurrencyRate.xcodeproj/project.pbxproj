@@ -49,7 +49,7 @@
 		AF0CDB0F22E758CC003FA00E /* PairsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB0E22E758CC003FA00E /* PairsService.swift */; };
 		AF0CDB1122E760B5003FA00E /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CDB1022E760B5003FA00E /* ServiceLocator.swift */; };
 		AFB8DE6A22E8510C0048D672 /* DataTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */; };
-		AFB8DE6C22E85A330048D672 /* CommonNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB8DE6B22E85A330048D672 /* CommonNetworkService.swift */; };
+		AFB8DE6C22E85A330048D672 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB8DE6B22E85A330048D672 /* Networkable.swift */; };
 		AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */; };
 		AFC77D7422E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */; };
 		AFC77D7622E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */; };
@@ -131,7 +131,7 @@
 		AF0CDB0E22E758CC003FA00E /* PairsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsService.swift; sourceTree = "<group>"; };
 		AF0CDB1022E760B5003FA00E /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskManager.swift; sourceTree = "<group>"; };
-		AFB8DE6B22E85A330048D672 /* CommonNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNetworkService.swift; sourceTree = "<group>"; };
+		AFB8DE6B22E85A330048D672 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		AFC77D7322E5E682003AC2D1 /* EmptyCurrenciesRateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateAssembly.swift; sourceTree = "<group>"; };
 		AFC77D7522E5EA10003AC2D1 /* EmptyCurrenciesRateModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCurrenciesRateModuleFactory.swift; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */,
-				AFB8DE6B22E85A330048D672 /* CommonNetworkService.swift */,
+				AFB8DE6B22E85A330048D672 /* Networkable.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -711,7 +711,7 @@
 				1962C3EB22E78F2B003E957C /* PairEntity.swift in Sources */,
 				1962C3DD22E4F782003E957C /* Router.swift in Sources */,
 				1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */,
-				AFB8DE6C22E85A330048D672 /* CommonNetworkService.swift in Sources */,
+				AFB8DE6C22E85A330048D672 /* Networkable.swift in Sources */,
 				AFC77D9C22E61270003AC2D1 /* CurrenciesRateAssembly.swift in Sources */,
 				AFC77D7822E5EAED003AC2D1 /* ModuleFactoryImplementation.swift in Sources */,
 				AF0CDB0F22E758CC003FA00E /* PairsService.swift in Sources */,
