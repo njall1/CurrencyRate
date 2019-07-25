@@ -38,12 +38,30 @@
                                                 <action selector="didClickPlusButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="TIY-7Y-KOx"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q63-gx-DCM">
+                                            <rect key="frame" x="264" y="16" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="hnU-KS-Ih2"/>
+                                                <constraint firstAttribute="width" constant="40" id="oav-zW-DQm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" image="Plus">
+                                                <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didClickEditButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="vad-HK-R3m"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="q63-gx-DCM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RkO-gP-4DA" secondAttribute="trailing" constant="16" id="JWz-8s-zcr"/>
                                         <constraint firstItem="RkO-gP-4DA" firstAttribute="leading" secondItem="t47-bH-vzH" secondAttribute="leading" constant="16" id="Ns8-mM-Sm4"/>
                                         <constraint firstItem="RkO-gP-4DA" firstAttribute="top" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="cYi-Eo-o33"/>
+                                        <constraint firstItem="q63-gx-DCM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="czW-RB-mbe"/>
+                                        <constraint firstAttribute="trailing" secondItem="q63-gx-DCM" secondAttribute="trailing" constant="16" id="rJa-5K-NsJ"/>
                                         <constraint firstItem="RkO-gP-4DA" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="uCF-gA-C6v"/>
+                                        <constraint firstItem="q63-gx-DCM" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="v3B-Ly-adN"/>
                                     </constraints>
                                 </view>
                             </tableView>

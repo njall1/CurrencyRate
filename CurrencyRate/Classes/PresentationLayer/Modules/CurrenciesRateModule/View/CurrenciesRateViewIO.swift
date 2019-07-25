@@ -16,4 +16,5 @@ protocol CurrenciesRateViewOutput: AnyObject {
     func viewDidLoad()
     func viewDidDisappear()
     func userDidClickAddPair()
+    func userDidClickEditMode(_ isEditing: Bool)
 }

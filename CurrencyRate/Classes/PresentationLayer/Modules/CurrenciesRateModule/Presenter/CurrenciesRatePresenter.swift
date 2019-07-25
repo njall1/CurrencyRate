@@ -32,7 +32,21 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
     }
 }
 
+extension CurrenciesRatePresenter: PairAdapterDelegate {
+    func shouldDeleteRow(at row: Int) {
+        self.storage.remove(at: row)
+    }
+}
+
 extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
+    func userDidClickEditMode(_ isEditing: Bool) {
+        if isEditing {
+            self.fetchPairsRequestAction.cancel()
+        } else {
+            self.fetchPairsRequestAction.defer()
+        }
+    }
+    
     func viewDidLoad() {
         self.fetchPairsRequestAction.run()
     }

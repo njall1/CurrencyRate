@@ -8,13 +8,24 @@
 
 import UIKit
 
+protocol PairAdapterDelegate: AnyObject {
+    func shouldDeleteRow(at row: Int)
+}
+
 final class PairAdapter: NSObject {
+    weak var delegate: PairAdapterDelegate?
     private var dataSource = [PairTableViewCell.DisplayItem]()
     weak var tableView: UITableView? {
         didSet {
             self.tableView?.register(UINib(nibName: PairTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: PairTableViewCell.identifier)
             self.tableView?.allowsSelection = false
             self.tableView?.dataSource = self
+            self.tableView?.reloadData()
+        }
+    }
+    
+    var isEditingMode: Bool = false {
+        didSet {
             self.tableView?.reloadData()
         }
     }
@@ -35,6 +46,23 @@ extension PairAdapter: UITableViewDataSource {
         let displayItem = self.dataSource[indexPath.row]
         (cell as? PairTableViewCell)?.configure(displayItem: displayItem)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return self.isEditingMode
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            self.delegate?.shouldDeleteRow(at: indexPath.row)
+            self.dataSource.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        case .insert, .none:
+            break
+        @unknown default:
+            fatalError("UITableView commit editingStyle issue!")
+        }
     }
 }
 

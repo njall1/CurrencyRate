@@ -16,6 +16,7 @@ class CurrenciesRateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.adapter.tableView = self.tableView
+        self.adapter.delegate = output as? PairAdapterDelegate
         self.output.viewDidLoad()
     }
     
@@ -36,5 +37,11 @@ extension CurrenciesRateViewController: CurrenciesRateViewInput {
 extension CurrenciesRateViewController {
     @IBAction private func didClickPlusButton(_ sender: UIButton) {
         self.output.userDidClickAddPair()
+    }
+    
+    @IBAction private func didClickEditButton(_ sender: UIButton) {
+        self.tableView.setEditing(!self.tableView.isEditing, animated: true)
+        self.adapter.isEditingMode = self.tableView.isEditing
+        self.output.userDidClickEditMode(self.tableView.isEditing)
     }
 }
