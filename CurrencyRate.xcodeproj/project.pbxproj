@@ -28,6 +28,7 @@
 		1962C3E622E64790003E957C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3E522E64790003E957C /* Constants.swift */; };
 		1962C3E822E64C0E003E957C /* CurrenciesModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3E722E64C0E003E957C /* CurrenciesModuleFactory.swift */; };
 		1962C3EB22E78F2B003E957C /* PairEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3EA22E78F2B003E957C /* PairEntity.swift */; };
+		1962C3EE22E96D95003E957C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3ED22E96D95003E957C /* Extensions.swift */; };
 		1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328722E1071700DAB4AD /* AppDelegate.swift */; };
 		1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1986328E22E1071A00DAB4AD /* Assets.xcassets */; };
 		1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */; };
@@ -102,6 +103,7 @@
 		1962C3E522E64790003E957C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1962C3E722E64C0E003E957C /* CurrenciesModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModuleFactory.swift; sourceTree = "<group>"; };
 		1962C3EA22E78F2B003E957C /* PairEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairEntity.swift; sourceTree = "<group>"; };
+		1962C3ED22E96D95003E957C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1986328422E1071700DAB4AD /* CurrencyRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986328722E1071700DAB4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1986328E22E1071A00DAB4AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,9 +237,11 @@
 		1938B3E322E18DCC00843E2A /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1962C3EF22E96F70003E957C /* DI */,
 				1962C3EC22E79BC7003E957C /* Network */,
 				1962C3E022E4F7D8003E957C /* Coordinator */,
 				1962C3D722E4F782003E957C /* CommonTypealias.swift */,
+				1962C3ED22E96D95003E957C /* Extensions.swift */,
 			);
 			path = CoreLayer;
 			sourceTree = "<group>";
@@ -331,11 +335,18 @@
 		1962C3EC22E79BC7003E957C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				AF0CDB1022E760B5003FA00E /* ServiceLocator.swift */,
 				AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */,
 				AFB8DE6B22E85A330048D672 /* CommonNetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		1962C3EF22E96F70003E957C /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				AF0CDB1022E760B5003FA00E /* ServiceLocator.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		1986327B22E1071700DAB4AD = {
@@ -668,6 +679,7 @@
 				1962C3E822E64C0E003E957C /* CurrenciesModuleFactory.swift in Sources */,
 				AF0CD41C22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift in Sources */,
 				1938B3EB22E3716400843E2A /* CurrencyTableViewCell.swift in Sources */,
+				1962C3EE22E96D95003E957C /* Extensions.swift in Sources */,
 				1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */,
 				AF0CDAF322E72CA8003FA00E /* PairTableViewCell.swift in Sources */,
 				1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */,
