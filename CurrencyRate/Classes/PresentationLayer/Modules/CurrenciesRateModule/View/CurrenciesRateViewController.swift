@@ -10,6 +10,8 @@ import UIKit
 
 class CurrenciesRateViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var emptyView: UIView!
+    
     var output: CurrenciesRateViewOutput!
     var adapter: PairAdapter!
     
@@ -29,6 +31,16 @@ class CurrenciesRateViewController: UIViewController {
 extension CurrenciesRateViewController: CurrenciesRateViewInput {
     func showPairs(_ list: [PairTableViewCell.DisplayItem]) {
         self.adapter.reloadData(dataSource: list)
+    }
+    
+    func showEmptyView() {
+        self.tableView.isHidden = true
+        self.emptyView.isHidden = false
+    }
+    
+    func hideEmptyView() {
+        self.tableView.isHidden = false
+        self.emptyView.isHidden = true
     }
 }
 

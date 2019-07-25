@@ -15,6 +15,7 @@ extension AppDelegate {
     
     func makeCoordinator() -> Coordinator {
         return ApplicationCoordinator(router: AppRouter(rootController: self.rootController),
-                                      coordinatorFactory: CoordinatorFactoryImplementation())
+                                      coordinatorFactory: CoordinatorFactoryImplementation(),
+                                      currenciesRateModuleFactory: ModuleFactoryImplementation())
     }
 }

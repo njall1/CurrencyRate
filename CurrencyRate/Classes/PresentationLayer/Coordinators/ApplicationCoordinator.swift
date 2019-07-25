@@ -14,29 +14,33 @@ final class ApplicationCoordinator: CommonCoordinator {
     }
     
     private let coordinatorFactory: CoordinatorFactory
+    private let currenciesRateModuleFactory: CurrenciesRateModuleFactory
     private let router: Router
     private let storageService: StorageServiceInput
     private var storage: Storage
     
-    init(router: Router, coordinatorFactory: CoordinatorFactory) {
+    init(router: Router, coordinatorFactory: CoordinatorFactory, currenciesRateModuleFactory: CurrenciesRateModuleFactory) {
         self.storageService = ServiceLocator.sharedInstance.getService()
         self.router = router
         self.coordinatorFactory = coordinatorFactory
-        self.storage = Storage(pairs: [])
+        self.currenciesRateModuleFactory = currenciesRateModuleFactory
+        self.storage = Storage(pairs: self.storageService.fetchPairsFromStorage())
     }
     
     override func start() {
         super.start()
         
-        self.updatePairsIfNeeded()
+        let module: CurrenciesRateModuleInput = self.currenciesRateModuleFactory.makeCurrenciesRateModule(pairs: self.storage.pairs)
         
-        let coordinator = self.coordinatorFactory.makeCurrencyRate(router: self.router, pairs: self.storage.pairs)
+        module.deletedItem = { [weak self] row in
+            self?.storage.pairs.remove(at: row)
+        }
         
-        self.runFlow(coordinator: coordinator) { [weak self] in
+        module.finishFlow = { [weak self] in
             self?.runAddCurrenciesPair()
         }
         
-        coordinator.start()
+        self.router.setRootModule(module)
     }
     
     private func runAddCurrenciesPair() {

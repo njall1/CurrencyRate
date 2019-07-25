@@ -14,6 +14,8 @@ final class CurrenciesRatePresenter {
     private var pairService: PairsServiceInput
     
     var finishFlow: EmptyCallback?
+    var deletedItem: RowCallback?
+    var disabledCurrencies: DisabledCurrenciesCallback?
     
     private lazy var fetchPairsRequestAction = DeferredAction(deferTime: Constants.pairsToUpdateTime) { [weak self] in
         self?.updatePairs()
@@ -34,7 +36,9 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
 
 extension CurrenciesRatePresenter: PairAdapterDelegate {
     func shouldDeleteRow(at row: Int) {
+        self.deletedItem?(row)
         self.storage.remove(at: row)
+        self.updateEmptyView()
     }
 }
 
@@ -48,6 +52,7 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
     }
     
     func viewDidLoad() {
+        self.updateEmptyView()
         self.fetchPairsRequestAction.run()
     }
     
@@ -61,20 +66,28 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
 }
 
 private extension CurrenciesRatePresenter {
+    func updateEmptyView() {
+        if self.storage.isEmpty {
+            self.view.showEmptyView()
+        } else {
+            self.view.hideEmptyView()
+        }
+    }
+    
     func updatePairs() {
         self.pairService.fetchPairs(pairs: self.storage) { [weak self] result in
             guard let self = self else { return }
             
-            self.fetchPairsRequestAction.defer()
-            
             switch result {
             case .failure(let error):
-                print("Error: \(error)")
+                print(error.localizedDescription)
+                self.fetchPairsRequestAction.cancel()
             case .success(let list):
+                self.fetchPairsRequestAction.defer()
                 self.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1" + " " + $0.pair.first.code,
                                                                              leftSubtitle: $0.pair.first.name,
                                                                              rightTitle: $0.value.makeRateAttributedString(),
-                                                                             rightSubtitle: $0.pair.secodn.name + " " + $0.pair.secodn.code) })
+                                                                             rightSubtitle: $0.pair.secodn.name + " • " + $0.pair.secodn.code) })
             }
         }
     }

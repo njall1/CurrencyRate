@@ -10,15 +10,6 @@ import Foundation
 
 final class ModuleFactoryImplementation { }
 
-extension ModuleFactoryImplementation: EmptyCurrenciesRateModuleFactory {
-    func makeEmptyCurrenciesRateModule() -> EmptyCurrenciesRateModuleInput {
-        guard let module = EmptyCurrenciesRateAssembly.makeEmptyCurrenciesRateModule()
-            else { fatalError("DI Error for EmptyCurrenciesRateAssembly.") }
-        return module
-    }
-}
-
-
 extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
     func makeCurrenciesRateModule(pairs: [Pair]) -> CurrenciesRateModuleInput {
         guard let module = CurrenciesRateAssembly.makeCurrenciesRateModule(pairs: pairs)

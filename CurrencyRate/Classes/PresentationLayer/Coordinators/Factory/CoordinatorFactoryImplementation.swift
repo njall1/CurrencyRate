@@ -10,17 +10,8 @@ import Foundation
 
 final class CoordinatorFactoryImplementation: CoordinatorFactory {    
     func makeAddCurrencyPair(router: Router, disabledCurrencies: [CurrencyEntity]) -> Coordinator & AddCurrencyPairCoordinatorOutput {
-        let moduleFactory = ModuleFactoryImplementation()
         return AddCurrencyPairCoordinator(router: router,
-                                          currenciesModuleFactory: moduleFactory,
+                                          currenciesModuleFactory: ModuleFactoryImplementation(),
                                           disabledCurrencies: disabledCurrencies)
-    }
-    
-    func makeCurrencyRate(router: Router, pairs: [Pair]) -> Coordinator & Finishable {
-        let moduleFactory = ModuleFactoryImplementation()
-        return CurrenciesRateCoordinator(router: router,
-                                       emptyCurrenciesRateModuleFactory: moduleFactory,
-                                       currenciesRateModuleFactory: moduleFactory,
-                                       pairs: pairs)
     }
 }

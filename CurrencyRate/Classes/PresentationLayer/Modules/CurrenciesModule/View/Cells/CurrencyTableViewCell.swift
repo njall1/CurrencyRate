@@ -36,7 +36,13 @@ final class CurrencyTableViewCell: UITableViewCell {
         self.titleLabel.alpha = displayItem.titleAlpha
         self.subtitleLabel.text = displayItem.subtitle
         self.subtitleLabel.alpha = displayItem.subtitleAlpha
-        self.thumbnailImageView.image = UIImage(named: displayItem.thumbnailName)
+        
+        if let image = UIImage(named: displayItem.thumbnailName) {
+            self.thumbnailImageView.image = image
+        } else {
+            self.thumbnailImageView.image = UIImage(named: "Default")
+        }
+        
         self.thumbnailImageView.alpha = displayItem.thumbnailAlpha
     }
 }

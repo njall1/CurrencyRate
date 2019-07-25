@@ -10,6 +10,8 @@ import Foundation
 
 protocol CurrenciesRateViewInput: AnyObject {
     func showPairs(_ list: [PairTableViewCell.DisplayItem])
+    func showEmptyView()
+    func hideEmptyView()
 }
 
 protocol CurrenciesRateViewOutput: AnyObject {
