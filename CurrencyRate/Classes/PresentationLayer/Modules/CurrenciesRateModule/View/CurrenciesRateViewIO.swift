@@ -14,5 +14,6 @@ protocol CurrenciesRateViewInput: AnyObject {
 
 protocol CurrenciesRateViewOutput: AnyObject {
     func viewDidLoad()
+    func viewDidDisappear()
     func userDidClickAddPair()
 }

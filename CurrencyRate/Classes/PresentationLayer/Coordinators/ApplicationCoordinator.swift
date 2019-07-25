@@ -49,7 +49,7 @@ final class ApplicationCoordinator: CommonCoordinator {
         coordinator.selectedPair = { [weak self] pair in
             guard let self = self else { return }
             
-            self.storage.pairs = self.storage.pairs + [pair]
+            self.storage.pairs.append(pair)
             self.storageService.savePairsToStorage(self.storage.pairs)
         }
         

@@ -51,6 +51,7 @@
 		AF24038422E9A20F00C1BBC2 /* AppDelegate+DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24038322E9A20F00C1BBC2 /* AppDelegate+DI.swift */; };
 		AF24038622E9A23F00C1BBC2 /* AppDelegate+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24038522E9A23F00C1BBC2 /* AppDelegate+Coordinator.swift */; };
 		AF24038A22E9D64200C1BBC2 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24038922E9D64200C1BBC2 /* StorageService.swift */; };
+		AF24038C22E9DF2B00C1BBC2 /* DeferedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24038B22E9DF2B00C1BBC2 /* DeferedAction.swift */; };
 		AFB8DE6A22E8510C0048D672 /* DataTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */; };
 		AFB8DE6C22E85A330048D672 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB8DE6B22E85A330048D672 /* Networkable.swift */; };
 		AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */; };
@@ -136,6 +137,7 @@
 		AF24038322E9A20F00C1BBC2 /* AppDelegate+DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+DI.swift"; sourceTree = "<group>"; };
 		AF24038522E9A23F00C1BBC2 /* AppDelegate+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Coordinator.swift"; sourceTree = "<group>"; };
 		AF24038922E9D64200C1BBC2 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		AF24038B22E9DF2B00C1BBC2 /* DeferedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferedAction.swift; sourceTree = "<group>"; };
 		AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskManager.swift; sourceTree = "<group>"; };
 		AFB8DE6B22E85A330048D672 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		AFC77D5722E5D54E003AC2D1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 			children = (
 				AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */,
 				AFB8DE6B22E85A330048D672 /* Networkable.swift */,
+				AF24038B22E9DF2B00C1BBC2 /* DeferedAction.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				1938B3EF22E377BB00843E2A /* CurrenciesAdapter.swift in Sources */,
 				1962C3E822E64C0E003E957C /* CurrenciesModuleFactory.swift in Sources */,
 				AF0CD41C22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift in Sources */,
+				AF24038C22E9DF2B00C1BBC2 /* DeferedAction.swift in Sources */,
 				1938B3EB22E3716400843E2A /* CurrencyTableViewCell.swift in Sources */,
 				1962C3EE22E96D95003E957C /* Extensions.swift in Sources */,
 				1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */,

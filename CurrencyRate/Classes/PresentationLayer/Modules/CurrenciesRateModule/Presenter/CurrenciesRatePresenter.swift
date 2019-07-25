@@ -15,6 +15,10 @@ final class CurrenciesRatePresenter {
     
     var finishFlow: EmptyCallback?
     
+    private lazy var fetchPairsRequestAction = DeferredAction(deferTime: Constants.pairsToUpdateTime) { [weak self] in
+        self?.updatePairs()
+    }
+    
     init(view: CurrenciesRateViewInput, pairs: [Pair], pairService: PairsServiceInput) {
         self.view = view
         self.storage = pairs
@@ -30,22 +34,34 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
 
 extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
     func viewDidLoad() {
+        self.fetchPairsRequestAction.run()
+    }
+    
+    func viewDidDisappear() {
+        self.fetchPairsRequestAction.cancel()
+    }
+    
+    func userDidClickAddPair() {
+        self.finishFlow?()
+    }
+}
+
+private extension CurrenciesRatePresenter {
+    func updatePairs() {
         self.pairService.fetchPairs(pairs: self.storage) { [weak self] result in
             guard let self = self else { return }
+            
+            self.fetchPairsRequestAction.defer()
             
             switch result {
             case .failure(let error):
                 print("Error: \(error)")
             case .success(let list):
                 self.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1" + " " + $0.pair.0.code,
-                                                                              leftSubtitle: $0.pair.0.name,
-                                                                              rightTitle: $0.value.makeRateAttributedString(),
-                                                                              rightSubtitle: $0.pair.1.name + " " + $0.pair.1.code) })
+                                                                             leftSubtitle: $0.pair.0.name,
+                                                                             rightTitle: $0.value.makeRateAttributedString(),
+                                                                             rightSubtitle: $0.pair.1.name + " " + $0.pair.1.code) })
             }
         }
-    }
-    
-    func userDidClickAddPair() {
-        self.finishFlow?()
     }
 }

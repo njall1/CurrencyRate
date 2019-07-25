@@ -18,6 +18,11 @@ class CurrenciesRateViewController: UIViewController {
         self.adapter.tableView = self.tableView
         self.output.viewDidLoad()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.output.viewDidDisappear()
+    }
 }
 
 extension CurrenciesRateViewController: CurrenciesRateViewInput {
