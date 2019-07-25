@@ -57,10 +57,10 @@ private extension CurrenciesRatePresenter {
             case .failure(let error):
                 print("Error: \(error)")
             case .success(let list):
-                self.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1" + " " + $0.pair.0.code,
-                                                                             leftSubtitle: $0.pair.0.name,
+                self.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1" + " " + $0.pair.first.code,
+                                                                             leftSubtitle: $0.pair.first.name,
                                                                              rightTitle: $0.value.makeRateAttributedString(),
-                                                                             rightSubtitle: $0.pair.1.name + " " + $0.pair.1.code) })
+                                                                             rightSubtitle: $0.pair.secodn.name + " " + $0.pair.secodn.code) })
             }
         }
     }

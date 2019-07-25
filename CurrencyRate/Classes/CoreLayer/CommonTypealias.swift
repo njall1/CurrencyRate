@@ -9,4 +9,4 @@
 typealias EmptyCallback = () -> Void
 typealias CurrencyCallback = (_ currency: CurrencyEntity) -> Void
 typealias PairCallback = (_ pair: Pair) -> Void
-typealias Pair = (CurrencyEntity, CurrencyEntity)
+

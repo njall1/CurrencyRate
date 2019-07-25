@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct PairEntity {
+struct Pair: Codable {
+    let first: CurrencyEntity
+    let secodn: CurrencyEntity
+}
+
+struct PairEntity: Codable {
     let pair: Pair
     let code: String
     let value: Double

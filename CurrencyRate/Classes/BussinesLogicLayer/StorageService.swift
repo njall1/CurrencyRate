@@ -22,11 +22,11 @@ final class StorageService: StorageServiceInput {
     
     func savePairsToStorage(_ pairs: [Pair]) {
         do {
-            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: pairs, requiringSecureCoding: false)
+            let encodedData = try PropertyListEncoder().encode(pairs)
             self.dataManager.addNewEntryToStorage(DataManager.Keys.selectedPairs, value:encodedData as AnyObject)
             self.dataManager.saveStorage()
         } catch {
-            print("Save error")
+            fatalError("Encode issue!")
         }
     }
     
@@ -34,10 +34,10 @@ final class StorageService: StorageServiceInput {
         var pairs = [Pair]()
         do {
             if let data = self.dataManager.readFromStorage(DataManager.Keys.selectedPairs) as? Data {
-                pairs = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Pair] ?? []
+                pairs = try PropertyListDecoder().decode([Pair].self, from: data)
             }
         } catch {
-            print("Read error")
+            fatalError("Decode issue!")
         }
         return pairs
     }
