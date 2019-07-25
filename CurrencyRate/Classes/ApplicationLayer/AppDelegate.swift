@@ -10,35 +10,13 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-    var rootController: UINavigationController {
-        return self.window!.rootViewController as! UINavigationController
-    }
     
+    var window: UIWindow?
     private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.registerServices()
         self.applicationCoordinator.start()
         return true
-    }
-}
-
-private extension AppDelegate {
-    func makeCoordinator() -> Coordinator {
-        return ApplicationCoordinator(router: AppRouter(rootController: self.rootController),
-                                                        coordinatorFactory: CoordinatorFactoryImplementation())
-    }
-    
-    func registerServices() {
-        let dataTaskManager: DataTaskManagerInput = DataTaskManager()
-        ServiceLocator.sharedInstance.registerService(service: dataTaskManager)
-    
-        let pairServiceInput: PairsServiceInput = PairsService()
-        ServiceLocator.sharedInstance.registerService(service: pairServiceInput)
-        
-        let currenciesService: CurenciesServiceInput = CurrenciesService()
-        ServiceLocator.sharedInstance.registerService(service: currenciesService)
     }
 }

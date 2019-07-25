@@ -28,16 +28,13 @@ struct ApiRequest: Hashable, Equatable {
 }
 
 protocol DataTaskManagerInput {
-    func perform(request: ApiRequest, completionHandler: @escaping DataTaskCallback)
+    @discardableResult func perform(request: ApiRequest, completionHandler: @escaping DataTaskCallback) -> URLSessionDataTask?
 }
 
 final class DataTaskManager: DataTaskManagerInput {
-    private var dataTaskDictionary = [ApiRequest: URLSessionDataTask?]()
     let defaultSession = URLSession(configuration: .default)
     
-    func perform(request: ApiRequest, completionHandler: @escaping DataTaskCallback) {
-       self.dataTaskDictionary[request]??.cancel()
-
+    @discardableResult func perform(request: ApiRequest, completionHandler: @escaping DataTaskCallback) -> URLSessionDataTask? {
         var urlComponents = URLComponents(string: request.path)
         urlComponents?.query = self.makeQuery(params: request.params)
         
@@ -45,17 +42,19 @@ final class DataTaskManager: DataTaskManagerInput {
             DispatchQueue.main.async {
                 completionHandler(.failure(AppError()))
             }
-            return
+            return nil
         }
         
-        self.dataTaskDictionary[request] = self.defaultSession.dataTask(with: url) { data, response, error in
+        let dataTask = self.defaultSession.dataTask(with: url) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
                     completionHandler(.failure(error))
                 }
             } else {
                 guard let dataResponse = data, error == nil else {
-                    completionHandler(.failure(AppError()))
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(AppError()))
+                    }
                     return
                 }
                 
@@ -74,7 +73,8 @@ final class DataTaskManager: DataTaskManagerInput {
             }
         }
         
-        self.dataTaskDictionary[request]??.resume()
+        dataTask.resume()
+        return dataTask
     }
 }
 

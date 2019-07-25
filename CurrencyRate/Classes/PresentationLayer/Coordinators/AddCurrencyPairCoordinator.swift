@@ -15,12 +15,13 @@ protocol AddCurrencyPairCoordinatorOutput: Finishable {
 final class AddCurrencyPairCoordinator: CommonCoordinator {
     private var modulesFactory: CurrenciesModuleFactory
     private var router: Router
+    
     private var disabledCurrencies: [CurrencyEntity]
     
     var finishFlow: EmptyCallback?
     var selectedPair: PairCallback?
     
-    init(router: Router, currenciesModuleFactory: CurrenciesModuleFactory, disabledCurrencies: [CurrencyEntity]) {
+    init(router: Router, currenciesModuleFactory: CurrenciesModuleFactory, disabledCurrencies: [CurrencyEntity]) { 
         self.router = router
         self.modulesFactory = currenciesModuleFactory
         self.disabledCurrencies = disabledCurrencies

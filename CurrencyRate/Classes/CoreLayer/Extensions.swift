@@ -25,19 +25,31 @@ extension StringProtocol {
     }
 }
 
-// MARK: - Doube
+// MARK: - Double
 
 extension Double {
     func makeRateAttributedString() -> NSAttributedString {
         let string = String(self)
-        let substring = String(string.components(separatedBy: ".")[1].dropFirst(2))
+        guard let substring = string.components(separatedBy: ".").item(at: 1)?.dropFirst(2)
+            else { return NSAttributedString(string: string) }
         
         var attributedString = NSMutableAttributedString()
-        if let rangeSubstring = string.nsRange(of: substring) {
+        if let rangeSubstring = string.nsRange(of: String(substring)) {
             attributedString = NSMutableAttributedString(string: string, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
             attributedString.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], range: rangeSubstring)
         }
         
         return attributedString as NSAttributedString
     }
+}
+
+// MARK: - Array
+
+extension Array {
+    
+    func item(at index: Int) -> Element? {
+        guard 0..<count ~= index else { return nil }
+        return self[index]
+    }
+    
 }
