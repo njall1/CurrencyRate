@@ -15,11 +15,11 @@ final class ApplicationCoordinator: CommonCoordinator {
     
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
+    private let storageService: StorageServiceInput
     private var storage: Storage
     
-    private let storageService: StorageServiceInput = ServiceLocator.sharedInstance.getService()
-    
     init(router: Router, coordinatorFactory: CoordinatorFactory) {
+        self.storageService = ServiceLocator.sharedInstance.getService()
         self.router = router
         self.coordinatorFactory = coordinatorFactory
         self.storage = Storage(pairs: [])
@@ -28,9 +28,7 @@ final class ApplicationCoordinator: CommonCoordinator {
     override func start() {
         super.start()
         
-        if !self.storageService.fetchPairsFromStorage().isEmpty {
-            self.storage.pairs = self.storageService.fetchPairsFromStorage()
-        }
+        self.updatePairsIfNeeded()
         
         let coordinator = self.coordinatorFactory.makeCurrencyRate(router: self.router, pairs: self.storage.pairs)
         
@@ -50,8 +48,8 @@ final class ApplicationCoordinator: CommonCoordinator {
         
         coordinator.selectedPair = { [weak self] pair in
             guard let self = self else { return }
-            self.storage.pairs = self.storage.pairs + [pair]
             
+            self.storage.pairs = self.storage.pairs + [pair]
             self.storageService.savePairsToStorage(self.storage.pairs)
         }
         
@@ -60,5 +58,14 @@ final class ApplicationCoordinator: CommonCoordinator {
         }
     
         coordinator.start()
+    }
+}
+
+private extension ApplicationCoordinator {
+    func updatePairsIfNeeded() {
+        let fetchedPairs = self.storageService.fetchPairsFromStorage()
+        if !fetchedPairs.isEmpty {
+            self.storage.pairs = fetchedPairs
+        }
     }
 }
