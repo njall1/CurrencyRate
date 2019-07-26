@@ -12,4 +12,6 @@ struct Constants {
     static let disabledAlpha: CGFloat = 0.3
     static let normalAlpha: CGFloat = 1.0
     static let pairsToUpdateTime: TimeInterval = 1.0
+    static let mainFont: UIFont = UIFont.boldSystemFont(ofSize: 20)
+    static let additionalFont: UIFont = UIFont.systemFont(ofSize: 15)
 }
