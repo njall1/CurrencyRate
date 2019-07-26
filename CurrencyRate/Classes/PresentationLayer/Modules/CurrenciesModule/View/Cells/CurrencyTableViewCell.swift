@@ -40,7 +40,7 @@ final class CurrencyTableViewCell: UITableViewCell {
         if let image = UIImage(named: displayItem.thumbnailName) {
             self.thumbnailImageView.image = image
         } else {
-            self.thumbnailImageView.image = UIImage(named: "DEFAULT")
+            self.thumbnailImageView.image = UIImage(named: "DISLIKE")
         }
         
         self.thumbnailImageView.alpha = displayItem.thumbnailAlpha

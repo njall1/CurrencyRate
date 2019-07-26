@@ -10,7 +10,7 @@ import UIKit
 
 final class CurrenciesRatePresenter {
     private weak var view: CurrenciesRateViewInput!
-    private var storage: [Pair]
+    private var state: [Pair]
     private var pairService: PairsServiceInput
     
     var finishFlow: EmptyCallback?
@@ -22,7 +22,7 @@ final class CurrenciesRatePresenter {
     
     init(view: CurrenciesRateViewInput, pairs: [Pair], pairService: PairsServiceInput) {
         self.view = view
-        self.storage = pairs
+        self.state = pairs
         self.pairService = pairService
     }
 }
@@ -35,7 +35,7 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
 
 extension CurrenciesRatePresenter: PairAdapterDelegate {
     func shouldDeleteRow(at row: Int) {
-        self.storage.remove(at: row)
+        self.state.remove(at: row)
         self.deletedPair?(row)
         self.updateEmptyView()
     }
@@ -73,7 +73,7 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
 
 private extension CurrenciesRatePresenter {
     func updateEmptyView() {
-        if self.storage.isEmpty {
+        if self.state.isEmpty {
             self.view.showEmptyView()
         } else {
             self.view.hideEmptyView()
@@ -81,7 +81,7 @@ private extension CurrenciesRatePresenter {
     }
     
     func updatePairs() {
-        self.pairService.fetchPairs(pairs: self.storage) { [weak self] result in
+        self.pairService.fetchPairs(pairs: self.state) { [weak self] result in
             guard let self = self else { return }
 
             self.view.isLoading = false

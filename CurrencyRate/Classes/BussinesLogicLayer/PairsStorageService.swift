@@ -26,8 +26,8 @@ final class PairsStorageService: PairsStorageServiceInput {
             let encodedData = try PropertyListEncoder().encode(pairs)
             self.dataManager.addNewEntryToStorage(DataManager.Keys.selectedPairs, value:encodedData as AnyObject)
             self.dataManager.saveStorage()
-        } catch {
-            print("Encode issue!")
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
     
@@ -37,8 +37,8 @@ final class PairsStorageService: PairsStorageServiceInput {
             if let data = self.dataManager.readFromStorage(DataManager.Keys.selectedPairs) as? Data {
                 pairs = try PropertyListDecoder().decode([Pair].self, from: data)
             }
-        } catch {
-            print("Decode issue!")
+        } catch let error {
+            print(error.localizedDescription)
         }
         return pairs
     }

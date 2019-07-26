@@ -81,6 +81,7 @@ extension CurrenciesRateViewController {
     }
     
     @IBAction private func didClickEditButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
         self.tableView.setEditing(!self.tableView.isEditing, animated: true)
         self.adapter.isEditingMode = self.tableView.isEditing
         self.output.userDidClickEditMode(self.tableView.isEditing)

@@ -115,6 +115,7 @@
                                                     <state key="normal" image="EDIT">
                                                         <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <state key="selected" image="DONE"/>
                                                     <connections>
                                                         <action selector="didClickEditButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="vad-HK-R3m"/>
                                                     </connections>
@@ -179,6 +180,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DONE" width="40" height="40"/>
         <image name="EDIT" width="24" height="24"/>
         <image name="Plus" width="40" height="40"/>
         <image name="REPEAT" width="40" height="41"/>

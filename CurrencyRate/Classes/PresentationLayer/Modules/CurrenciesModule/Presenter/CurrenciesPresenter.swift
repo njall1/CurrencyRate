@@ -45,7 +45,7 @@ extension CurrenciesPresenter: CurrenciesViewOutput {
                     let alpha: CGFloat = self.isDisabledCurrency(currency: $0) ? Constants.disabledAlpha : Constants.normalAlpha
                     return CurrencyTableViewCell.DisplayItem(thumbnailName: $0.code,
                                                              thumbnailAlpha: alpha,
-                                                             title: $0.code,
+                                                             title: $0.name,
                                                              titleAlpha: alpha,
                                                              subtitle: $0.code,
                                                              subtitleAlpha: alpha)
