@@ -14,8 +14,7 @@ final class CurrenciesRatePresenter {
     private var pairService: PairsServiceInput
     
     var finishFlow: EmptyCallback?
-    var deletedItem: RowCallback?
-    var disabledCurrencies: DisabledCurrenciesCallback?
+    var deletedPair: RowCallback?
     
     private lazy var fetchPairsRequestAction = DeferredAction(deferTime: Constants.pairsToUpdateTime) { [weak self] in
         self?.updatePairs()
@@ -36,8 +35,8 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
 
 extension CurrenciesRatePresenter: PairAdapterDelegate {
     func shouldDeleteRow(at row: Int) {
-        self.deletedItem?(row)
         self.storage.remove(at: row)
+        self.deletedPair?(row)
         self.updateEmptyView()
     }
 }
@@ -47,12 +46,15 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
         if isEditing {
             self.fetchPairsRequestAction.cancel()
         } else {
-            self.fetchPairsRequestAction.defer()
+            self.fetchPairsRequestAction.run()
         }
     }
     
     func viewDidLoad() {
+        self.view.hideRepeatView()
         self.updateEmptyView()
+        
+        self.view.isLoading = true
         self.fetchPairsRequestAction.run()
     }
     
@@ -62,6 +64,10 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
     
     func userDidClickAddPair() {
         self.finishFlow?()
+    }
+    
+    func userDidClickRepeat() {
+        self.fetchPairsRequestAction.run()
     }
 }
 
@@ -77,12 +83,14 @@ private extension CurrenciesRatePresenter {
     func updatePairs() {
         self.pairService.fetchPairs(pairs: self.storage) { [weak self] result in
             guard let self = self else { return }
-            
+
+            self.view.isLoading = false
             switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure:
+                self.view.showRepeatView()
                 self.fetchPairsRequestAction.cancel()
             case .success(let list):
+                self.view.hideRepeatView()
                 self.fetchPairsRequestAction.defer()
                 self.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1" + " " + $0.pair.first.code,
                                                                              leftSubtitle: $0.pair.first.name,

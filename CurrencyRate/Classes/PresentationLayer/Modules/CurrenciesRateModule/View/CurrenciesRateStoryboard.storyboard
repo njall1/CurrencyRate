@@ -18,112 +18,158 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxN-yR-duP">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-b7-IE2">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="29S-gM-8yI">
-                                        <rect key="frame" x="0.0" y="217" width="320" height="114"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-8d-TJD">
-                                                <rect key="frame" x="140" y="0.0" width="40" height="40"/>
-                                                <state key="normal" image="Plus">
-                                                    <color key="titleColor" red="0.1764705882" green="0.46666666670000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didClickPlusButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="LHl-qp-W79"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add currency pair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-ul-cv1">
-                                                <rect key="frame" x="95.5" y="48" width="129" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" red="0.1764705882" green="0.46666666670000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a currency pair to compare their live rates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvH-3U-j2Z">
-                                                <rect key="frame" x="30.5" y="75.5" width="259" height="38.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBl-p3-gWJ">
+                                        <rect key="frame" x="139.5" y="253.5" width="41" height="41"/>
                                         <constraints>
-                                            <constraint firstItem="6Hs-ul-cv1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="29S-gM-8yI" secondAttribute="leading" constant="16" id="4iu-BH-eO8"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Hs-ul-cv1" secondAttribute="trailing" constant="16" id="HY9-hZ-1hh"/>
-                                            <constraint firstItem="AvH-3U-j2Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="29S-gM-8yI" secondAttribute="leading" constant="16" id="RiN-SF-nIU"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AvH-3U-j2Z" secondAttribute="trailing" constant="16" id="eD2-cr-bUV"/>
+                                            <constraint firstAttribute="width" constant="41" id="3xQ-zV-xWz"/>
+                                            <constraint firstAttribute="height" constant="41" id="LO4-8q-JWn"/>
                                         </constraints>
-                                    </stackView>
+                                        <state key="normal" title="Button" image="REPEAT"/>
+                                        <connections>
+                                            <action selector="didClickRepeatButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="p1o-oP-XKD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="29S-gM-8yI" firstAttribute="centerY" secondItem="kxN-yR-duP" secondAttribute="centerY" id="Hsx-mM-4KN"/>
-                                    <constraint firstAttribute="trailing" secondItem="29S-gM-8yI" secondAttribute="trailing" id="Qzh-WX-plO"/>
-                                    <constraint firstItem="29S-gM-8yI" firstAttribute="leading" secondItem="kxN-yR-duP" secondAttribute="leading" id="hMv-hQ-FmX"/>
+                                    <constraint firstItem="LBl-p3-gWJ" firstAttribute="centerY" secondItem="Eyw-b7-IE2" secondAttribute="centerY" id="UiC-sc-6bL"/>
+                                    <constraint firstItem="LBl-p3-gWJ" firstAttribute="centerX" secondItem="Eyw-b7-IE2" secondAttribute="centerX" id="WCT-5n-lUZ"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A5K-5G-ci1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzT-Oc-y0Z">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxN-yR-duP">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="29S-gM-8yI">
+                                                <rect key="frame" x="0.0" y="217" width="320" height="114"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJM-8d-TJD">
+                                                        <rect key="frame" x="140" y="0.0" width="40" height="40"/>
+                                                        <state key="normal" image="Plus">
+                                                            <color key="titleColor" red="0.1764705882" green="0.46666666670000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="didClickPlusButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="LHl-qp-W79"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add currency pair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hs-ul-cv1">
+                                                        <rect key="frame" x="95.5" y="48" width="129" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" red="0.1764705882" green="0.46666666670000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a currency pair to compare their live rates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvH-3U-j2Z">
+                                                        <rect key="frame" x="30.5" y="75.5" width="259" height="38.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="6Hs-ul-cv1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="29S-gM-8yI" secondAttribute="leading" constant="16" id="4iu-BH-eO8"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Hs-ul-cv1" secondAttribute="trailing" constant="16" id="HY9-hZ-1hh"/>
+                                                    <constraint firstItem="AvH-3U-j2Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="29S-gM-8yI" secondAttribute="leading" constant="16" id="RiN-SF-nIU"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AvH-3U-j2Z" secondAttribute="trailing" constant="16" id="eD2-cr-bUV"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="29S-gM-8yI" firstAttribute="centerY" secondItem="kxN-yR-duP" secondAttribute="centerY" id="Hsx-mM-4KN"/>
+                                            <constraint firstAttribute="trailing" secondItem="29S-gM-8yI" secondAttribute="trailing" id="Qzh-WX-plO"/>
+                                            <constraint firstItem="29S-gM-8yI" firstAttribute="leading" secondItem="kxN-yR-duP" secondAttribute="leading" id="hMv-hQ-FmX"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A5K-5G-ci1">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="t47-bH-vzH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-gP-4DA">
+                                                    <rect key="frame" x="16" y="16" width="186" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="qT0-e2-Qtz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <state key="normal" title="  Add currency pair" image="Plus">
+                                                        <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didClickPlusButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="TIY-7Y-KOx"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q63-gx-DCM">
+                                                    <rect key="frame" x="264" y="16" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="hnU-KS-Ih2"/>
+                                                        <constraint firstAttribute="width" constant="40" id="oav-zW-DQm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <state key="normal" image="EDIT">
+                                                        <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didClickEditButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="vad-HK-R3m"/>
+                                                    </connections>
+                                                </button>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="u0z-rO-Kyc">
+                                                    <rect key="frame" x="26" y="26" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="u0z-rO-Kyc" firstAttribute="leading" secondItem="t47-bH-vzH" secondAttribute="leading" constant="26" id="HHt-7P-afn"/>
+                                                <constraint firstItem="q63-gx-DCM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RkO-gP-4DA" secondAttribute="trailing" constant="16" id="JWz-8s-zcr"/>
+                                                <constraint firstItem="u0z-rO-Kyc" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="LdA-SN-HkY"/>
+                                                <constraint firstItem="RkO-gP-4DA" firstAttribute="leading" secondItem="t47-bH-vzH" secondAttribute="leading" constant="16" id="Ns8-mM-Sm4"/>
+                                                <constraint firstItem="RkO-gP-4DA" firstAttribute="top" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="cYi-Eo-o33"/>
+                                                <constraint firstItem="q63-gx-DCM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="czW-RB-mbe"/>
+                                                <constraint firstAttribute="trailing" secondItem="q63-gx-DCM" secondAttribute="trailing" constant="16" id="rJa-5K-NsJ"/>
+                                                <constraint firstItem="RkO-gP-4DA" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="uCF-gA-C6v"/>
+                                                <constraint firstItem="q63-gx-DCM" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="v3B-Ly-adN"/>
+                                            </constraints>
+                                        </view>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="t47-bH-vzH">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-gP-4DA">
-                                            <rect key="frame" x="16" y="16" width="186" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="qT0-e2-Qtz"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <state key="normal" title="  Add currency pair" image="Plus">
-                                                <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="didClickPlusButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="TIY-7Y-KOx"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q63-gx-DCM">
-                                            <rect key="frame" x="264" y="16" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="hnU-KS-Ih2"/>
-                                                <constraint firstAttribute="width" constant="40" id="oav-zW-DQm"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <state key="normal" image="EDIT">
-                                                <color key="titleColor" red="0.25882352939999997" green="0.5450980392" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="didClickEditButton:" destination="IAM-Cx-17b" eventType="touchUpInside" id="vad-HK-R3m"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="q63-gx-DCM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RkO-gP-4DA" secondAttribute="trailing" constant="16" id="JWz-8s-zcr"/>
-                                        <constraint firstItem="RkO-gP-4DA" firstAttribute="leading" secondItem="t47-bH-vzH" secondAttribute="leading" constant="16" id="Ns8-mM-Sm4"/>
-                                        <constraint firstItem="RkO-gP-4DA" firstAttribute="top" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="cYi-Eo-o33"/>
-                                        <constraint firstItem="q63-gx-DCM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="t47-bH-vzH" secondAttribute="top" constant="16" id="czW-RB-mbe"/>
-                                        <constraint firstAttribute="trailing" secondItem="q63-gx-DCM" secondAttribute="trailing" constant="16" id="rJa-5K-NsJ"/>
-                                        <constraint firstItem="RkO-gP-4DA" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="uCF-gA-C6v"/>
-                                        <constraint firstItem="q63-gx-DCM" firstAttribute="centerY" secondItem="t47-bH-vzH" secondAttribute="centerY" id="v3B-Ly-adN"/>
-                                    </constraints>
-                                </view>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="A5K-5G-ci1" firstAttribute="top" secondItem="mzT-Oc-y0Z" secondAttribute="top" id="1Rs-8e-cbO"/>
+                                    <constraint firstAttribute="bottom" secondItem="kxN-yR-duP" secondAttribute="bottom" id="4HH-XX-UG4"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5K-5G-ci1" secondAttribute="trailing" id="Ev2-fA-1jg"/>
+                                    <constraint firstItem="kxN-yR-duP" firstAttribute="top" secondItem="mzT-Oc-y0Z" secondAttribute="top" id="FhC-a5-IdE"/>
+                                    <constraint firstAttribute="bottom" secondItem="A5K-5G-ci1" secondAttribute="bottom" id="Uac-pz-MVX"/>
+                                    <constraint firstItem="A5K-5G-ci1" firstAttribute="leading" secondItem="mzT-Oc-y0Z" secondAttribute="leading" id="Zvo-FV-wNf"/>
+                                    <constraint firstAttribute="trailing" secondItem="kxN-yR-duP" secondAttribute="trailing" id="oWK-Ki-MUn"/>
+                                    <constraint firstItem="kxN-yR-duP" firstAttribute="leading" secondItem="mzT-Oc-y0Z" secondAttribute="leading" id="vSY-1Q-faq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="bottom" secondItem="kxN-yR-duP" secondAttribute="bottom" id="5mi-mq-oCV"/>
-                            <constraint firstItem="kxN-yR-duP" firstAttribute="top" secondItem="TwI-8q-7Yc" secondAttribute="top" id="8dR-dL-I5U"/>
-                            <constraint firstItem="A5K-5G-ci1" firstAttribute="top" secondItem="TwI-8q-7Yc" secondAttribute="top" id="Aax-28-zEd"/>
-                            <constraint firstItem="kxN-yR-duP" firstAttribute="leading" secondItem="TwI-8q-7Yc" secondAttribute="leading" id="Fun-TY-8lm"/>
-                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="bottom" secondItem="A5K-5G-ci1" secondAttribute="bottom" id="GXy-Ki-fT0"/>
-                            <constraint firstItem="A5K-5G-ci1" firstAttribute="leading" secondItem="TwI-8q-7Yc" secondAttribute="leading" id="Mka-xl-LYT"/>
-                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="trailing" secondItem="A5K-5G-ci1" secondAttribute="trailing" id="WWy-KM-awn"/>
-                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="trailing" secondItem="kxN-yR-duP" secondAttribute="trailing" id="epl-oe-Ji9"/>
+                            <constraint firstItem="Eyw-b7-IE2" firstAttribute="leading" secondItem="TwI-8q-7Yc" secondAttribute="leading" id="51C-Iz-XtK"/>
+                            <constraint firstItem="mzT-Oc-y0Z" firstAttribute="trailing" secondItem="TwI-8q-7Yc" secondAttribute="trailing" id="JtP-sc-6YU"/>
+                            <constraint firstItem="mzT-Oc-y0Z" firstAttribute="leading" secondItem="TwI-8q-7Yc" secondAttribute="leading" id="Qvp-8A-aa5"/>
+                            <constraint firstItem="mzT-Oc-y0Z" firstAttribute="top" secondItem="TwI-8q-7Yc" secondAttribute="top" id="Z4Z-ML-0va"/>
+                            <constraint firstItem="mzT-Oc-y0Z" firstAttribute="bottom" secondItem="TwI-8q-7Yc" secondAttribute="bottom" id="fbd-q4-b4k"/>
+                            <constraint firstItem="Eyw-b7-IE2" firstAttribute="top" secondItem="TwI-8q-7Yc" secondAttribute="top" id="rVj-hU-56X"/>
+                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="trailing" secondItem="Eyw-b7-IE2" secondAttribute="trailing" id="tK3-d6-kZe"/>
+                            <constraint firstItem="TwI-8q-7Yc" firstAttribute="bottom" secondItem="Eyw-b7-IE2" secondAttribute="bottom" id="ujB-zj-Rga"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TwI-8q-7Yc"/>
                     </view>
                     <connections>
                         <outlet property="emptyView" destination="kxN-yR-duP" id="5km-2M-eQx"/>
+                        <outlet property="loaderView" destination="u0z-rO-Kyc" id="Nfg-Bh-3tE"/>
+                        <outlet property="mainView" destination="mzT-Oc-y0Z" id="dlF-a4-En8"/>
+                        <outlet property="plusButton" destination="RkO-gP-4DA" id="W5j-0U-FF0"/>
+                        <outlet property="repeatView" destination="Eyw-b7-IE2" id="eeN-MH-M4L"/>
                         <outlet property="tableView" destination="A5K-5G-ci1" id="RFG-BL-DyP"/>
                     </connections>
                 </viewController>
@@ -135,5 +181,6 @@
     <resources>
         <image name="EDIT" width="24" height="24"/>
         <image name="Plus" width="40" height="40"/>
+        <image name="REPEAT" width="40" height="41"/>
     </resources>
 </document>

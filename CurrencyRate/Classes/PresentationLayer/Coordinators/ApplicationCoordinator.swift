@@ -16,7 +16,7 @@ final class ApplicationCoordinator: CommonCoordinator {
     private let coordinatorFactory: CoordinatorFactory
     private let currenciesRateModuleFactory: CurrenciesRateModuleFactory
     private let router: Router
-    private let storageService: StorageServiceInput
+    private let storageService: PairsStorageServiceInput
     private var storage: Storage
     
     init(router: Router, coordinatorFactory: CoordinatorFactory, currenciesRateModuleFactory: CurrenciesRateModuleFactory) {
@@ -32,8 +32,10 @@ final class ApplicationCoordinator: CommonCoordinator {
         
         let module: CurrenciesRateModuleInput = self.currenciesRateModuleFactory.makeCurrenciesRateModule(pairs: self.storage.pairs)
         
-        module.deletedItem = { [weak self] row in
-            self?.storage.pairs.remove(at: row)
+        module.deletedPair = { [weak self] row in
+            guard let self = self else { return }
+            self.storage.pairs.remove(at: row)
+            self.storageService.savePairsToStorage(self.storage.pairs)
         }
         
         module.finishFlow = { [weak self] in

@@ -9,9 +9,12 @@
 import Foundation
 
 protocol CurrenciesRateViewInput: AnyObject {
+    var isLoading: Bool { get set }
     func showPairs(_ list: [PairTableViewCell.DisplayItem])
     func showEmptyView()
     func hideEmptyView()
+    func showRepeatView() 
+    func hideRepeatView()
 }
 
 protocol CurrenciesRateViewOutput: AnyObject {
@@ -19,4 +22,5 @@ protocol CurrenciesRateViewOutput: AnyObject {
     func viewDidDisappear()
     func userDidClickAddPair()
     func userDidClickEditMode(_ isEditing: Bool)
+    func userDidClickRepeat()
 }

@@ -13,7 +13,7 @@ extension AppDelegate {
         let dataManager: DataManagerInput = DataManager()
         ServiceLocator.sharedInstance.registerService(service: dataManager)
         
-        let storageService: StorageServiceInput = StorageService(dataManager: ServiceLocator.sharedInstance.getService())
+        let storageService: PairsStorageServiceInput = PairsStorageService()
         ServiceLocator.sharedInstance.registerService(service: storageService)
         
         let dataTaskManager: DataTaskManagerInput = DataTaskManager()

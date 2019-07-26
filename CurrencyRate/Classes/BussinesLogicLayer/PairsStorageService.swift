@@ -8,25 +8,26 @@
 
 import Foundation
 
-protocol StorageServiceInput {
+protocol PairsStorageServiceInput {
     func savePairsToStorage(_ pairs: [Pair])
     func fetchPairsFromStorage() -> [Pair]
 }
 
-final class StorageService: StorageServiceInput {
+final class PairsStorageService: PairsStorageServiceInput {
     let dataManager: DataManagerInput
     
-    init(dataManager: DataManagerInput) {
-        self.dataManager = dataManager
+    init() {
+        self.dataManager = ServiceLocator.sharedInstance.getService()
     }
     
     func savePairsToStorage(_ pairs: [Pair]) {
         do {
+            self.dataManager.deleteFromStorage(DataManager.Keys.selectedPairs)
             let encodedData = try PropertyListEncoder().encode(pairs)
             self.dataManager.addNewEntryToStorage(DataManager.Keys.selectedPairs, value:encodedData as AnyObject)
             self.dataManager.saveStorage()
         } catch {
-            fatalError("Encode issue!")
+            print("Encode issue!")
         }
     }
     
@@ -37,7 +38,7 @@ final class StorageService: StorageServiceInput {
                 pairs = try PropertyListDecoder().decode([Pair].self, from: data)
             }
         } catch {
-            fatalError("Decode issue!")
+            print("Decode issue!")
         }
         return pairs
     }

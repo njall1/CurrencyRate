@@ -12,6 +12,5 @@ typealias RowCallback = (_ row: Int) -> Void
 typealias DisabledCurrenciesCallback = (_ currencies: Int) -> Void
 
 protocol CurrenciesRateModuleInput: Presentable, Finishable {
-    var deletedItem: RowCallback? { get set }
-    var disabledCurrencies: DisabledCurrenciesCallback? { get set }
+    var deletedPair: RowCallback? { get set }
 }
