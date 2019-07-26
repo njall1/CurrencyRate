@@ -180,7 +180,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DONE" width="40" height="40"/>
+        <image name="DONE" width="24" height="24"/>
         <image name="EDIT" width="24" height="24"/>
         <image name="Plus" width="40" height="40"/>
         <image name="REPEAT" width="40" height="41"/>
