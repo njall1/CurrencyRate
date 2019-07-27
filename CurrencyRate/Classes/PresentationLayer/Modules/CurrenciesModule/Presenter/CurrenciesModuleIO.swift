@@ -10,5 +10,4 @@ import Foundation
 
 protocol CurrenciesModuleInput: Presentable, Finishable {
     var selectedCurrency: CurrencyCallback? { get set }
-    func configureModule(disabledCurrencies: [CurrencyEntity])
 }

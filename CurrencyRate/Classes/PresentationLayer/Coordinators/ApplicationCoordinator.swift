@@ -26,13 +26,6 @@ final class ApplicationCoordinator: CommonCoordinator {
         
         let module: CurrenciesRateModuleInput = self.currenciesRateModuleFactory.makeCurrenciesRateModule()
         
-//        module.deletedPair = { [weak self] row in
-//            guard let self = self else { return }
-////            self.storage.pairs.remove(at: row)
-////            let pairs = self.storageService.pairs
-////            pairs.remove(at: row)
-//        }
-        
         module.finishFlow = { [weak self] in
             self?.runAddCurrenciesPair()
         }
@@ -60,14 +53,5 @@ final class ApplicationCoordinator: CommonCoordinator {
         }
     
         coordinator.start()
-    }
-}
-
-private extension ApplicationCoordinator {
-    func updatePairsIfNeeded() {
-//        let fetchedPairs = self.storageService.fetchPairsFromStorage()
-//        if !fetchedPairs.isEmpty {
-//            self.storage.pairs = fetchedPairs
-//        }
     }
 }

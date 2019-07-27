@@ -17,19 +17,16 @@ final class CurrenciesPresenter {
     var selectedCurrency: CurrencyCallback?
     var finishFlow: EmptyCallback?
     
-    init(view: CurrenciesViewInput, currenciesService: CurrenciesServiceInput) {
+    init(view: CurrenciesViewInput, currenciesService: CurrenciesServiceInput, disabledCurrencies: [CurrencyEntity]) {
         self.view = view
         self.currenciesService = currenciesService
+        self.disabledCurrencies = disabledCurrencies
     }
 }
 
 extension CurrenciesPresenter: CurrenciesModuleInput {
     func toPresent() -> UIViewController? {
         return self.view as? UIViewController
-    }
-    
-    func configureModule(disabledCurrencies: [CurrencyEntity]) {
-        self.disabledCurrencies = disabledCurrencies
     }
 }
 
