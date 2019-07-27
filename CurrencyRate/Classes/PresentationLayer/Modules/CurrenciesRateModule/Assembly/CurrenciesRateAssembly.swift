@@ -9,14 +9,14 @@
 import UIKit
 
 struct CurrenciesRateAssembly {
-    static func makeCurrenciesRateModule(pairs: [Pair]) -> CurrenciesRateModuleInput? {
+    static func makeCurrenciesRateModule(rateServie: RateServiceInput, pairsStorage: PairsStorageServiceInput) -> CurrenciesRateModuleInput? {
         guard let viewController = UIStoryboard(name: "CurrenciesRateStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesRateViewController
             else { return nil }
         
         viewController.adapter = PairAdapter()
         viewController.output = CurrenciesRatePresenter(view: viewController,
-                                                        pairs: pairs,
-                                                        pairService: ServiceLocator.sharedInstance.getService())
+                                                        rateService: rateServie,
+                                                        pairsStorage: ServiceLocator.sharedInstance.getService())
        
         return viewController.output as? CurrenciesRateModuleInput
     }

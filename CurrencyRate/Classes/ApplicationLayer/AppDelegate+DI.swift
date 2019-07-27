@@ -10,19 +10,16 @@ import Foundation
 
 extension AppDelegate {    
     func registerServices() {
-        let dataManager: DataManagerInput = DataManager()
-        ServiceLocator.sharedInstance.registerService(service: dataManager)
+        let currenciesService: CurrenciesServiceInput = CurrenciesService()
+        ServiceLocator.sharedInstance.registerService(service: currenciesService)
         
-        let storageService: PairsStorageServiceInput = PairsStorageService()
+        let storageService: PairsStorageServiceInput = StorageService(dataManager: DataManager())
         ServiceLocator.sharedInstance.registerService(service: storageService)
         
         let dataTaskManager: DataTaskManagerInput = DataTaskManager()
         ServiceLocator.sharedInstance.registerService(service: dataTaskManager)
         
-        let pairServiceInput: PairsServiceInput = PairsService()
+        let pairServiceInput: RateServiceInput = RateService()
         ServiceLocator.sharedInstance.registerService(service: pairServiceInput)
-        
-        let currenciesService: CurenciesServiceInput = CurrenciesService()
-        ServiceLocator.sharedInstance.registerService(service: currenciesService)
     }
 }

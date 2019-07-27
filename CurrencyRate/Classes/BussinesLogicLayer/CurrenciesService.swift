@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol CurenciesServiceInput {
-    func fetchCurencies(completionHandler: @escaping (Result<[CurrencyEntity], Error>) -> Void)
+protocol CurrenciesServiceInput {
+    func fetchCurrencies() -> [CurrencyEntity]
 }
 
-final class CurrenciesService: CurenciesServiceInput {
-    func fetchCurencies(completionHandler: @escaping (Result<[CurrencyEntity], Error>) -> Void) {
+final class CurrenciesService: CurrenciesServiceInput {
+    func fetchCurrencies() -> [CurrencyEntity] {
         let currencyEntities = currencies.map { CurrencyEntity(code: $0.key, name: $0.value) }
-        completionHandler(.success(currencyEntities))
+        return currencyEntities
     }
 }
 

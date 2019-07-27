@@ -9,7 +9,6 @@
 import Foundation
 
 public class DeferredAction {
-    
     public let deferTime: TimeInterval
     public let action: (() -> Void)?
     

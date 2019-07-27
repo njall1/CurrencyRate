@@ -9,11 +9,13 @@
 import UIKit
 
 struct CurrenciesAssembly {
-    static func makeCurrenciesModule() -> CurrenciesModuleInput? {
+    static func makeCurrenciesModule(currenciesService: CurrenciesServiceInput, disabledCurrencies: [CurrencyEntity]) -> CurrenciesModuleInput? {
         guard let viewController = UIStoryboard(name: "CurrenciesStoryboard", bundle: nil).instantiateInitialViewController() as? CurrenciesViewController
             else { return nil }
         
-        viewController.output = CurrenciesPresenter(view: viewController, currenciesService: ServiceLocator.sharedInstance.getService())
+        let presenter = CurrenciesPresenter(view: viewController, currenciesService: currenciesService)
+        presenter.configureModule(disabledCurrencies: disabledCurrencies)
+        viewController.output = CurrenciesPresenter(view: viewController, currenciesService: currenciesService)
         viewController.adapter = CurrenciesAdapter()
         viewController.adapter.delegate = viewController.output as? CurrenciesAdapterDelegate
         return viewController.output as? CurrenciesModuleInput

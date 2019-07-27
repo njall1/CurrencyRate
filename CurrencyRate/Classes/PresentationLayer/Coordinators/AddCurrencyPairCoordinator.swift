@@ -38,7 +38,7 @@ final class AddCurrencyPairCoordinator: CommonCoordinator {
             let pairModule = self.modulesFactory.makeCurrencyModule(disabledCurrencies: [currency])
         
             pairModule.selectedCurrency = { [weak self] secondCurrency in
-                self?.selectedPair?(Pair(first: currency, secodn: secondCurrency))
+                self?.selectedPair?(PairEntity(first: currency, second: secondCurrency))
             }
             
             pairModule.finishFlow = { [weak self] in

@@ -8,24 +8,24 @@
 
 import Foundation
 
-protocol PairsServiceInput {
-    func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void)
+protocol RateServiceInput {
+    func fetchRates(pairs: [PairEntity], completionHandler: @escaping (Result<[RateEntity], Error>) -> Void)
 }
 
-final class PairsService: Networkable, PairsServiceInput {
+final class RateService: Networkable, RateServiceInput {
     var dataTaskManager: DataTaskManagerInput = ServiceLocator.sharedInstance.getService()
     
-    func fetchPairs(pairs: [Pair], completionHandler: @escaping (Result<[PairEntity], Error>) -> Void) {
-        let params: [Param] = pairs.reduce(into: [Param]()) { $0.append(("pairs" ,$1.first.code + $1.secodn.code)) }
+    func fetchRates(pairs: [PairEntity], completionHandler: @escaping (Result<[RateEntity], Error>) -> Void) {
+        let params: [Param] = pairs.reduce(into: [Param]()) { $0.append(("pairs" ,$1.first.code + $1.second.code)) }
         let request = ApiRequest(path: "https://europe-west1-revolut-230009.cloudfunctions.net/revolut-ios", params: params)
         self.dataTaskManager.perform(request: request) { result in
             switch result {
             case .failure(let error):
                 completionHandler(.failure(error))
             case .success(let json):
-                let response = pairs.map { pair -> PairEntity in
-                    let code = pair.first.code + pair.secodn.code
-                    return PairEntity(pair: pair, code: code, value: json?[code] as? Double ?? 0.0)
+                let response = pairs.map { pair -> RateEntity in
+                    let code = pair.first.code + pair.second.code
+                    return RateEntity(pair: pair, code: code, value: json?[code] as? Double ?? 0.0)
                 }
                 
                 completionHandler(.success(response))

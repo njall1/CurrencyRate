@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CurrenciesRateModuleFactory {
-    func makeCurrenciesRateModule(pairs: [Pair]) -> CurrenciesRateModuleInput
+    func makeCurrenciesRateModule() -> CurrenciesRateModuleInput
 }

@@ -10,20 +10,19 @@ import UIKit
 
 final class CurrenciesRatePresenter {
     private weak var view: CurrenciesRateViewInput!
-    private var state: [Pair]
-    private var pairService: PairsServiceInput
+    private var rateService: RateServiceInput
+    private var pairsStorage: PairsStorageServiceInput
     
     var finishFlow: EmptyCallback?
-    var deletedPair: RowCallback?
     
     private lazy var fetchPairsRequestAction = DeferredAction(deferTime: Constants.pairsToUpdateTime) { [weak self] in
         self?.updatePairs()
     }
     
-    init(view: CurrenciesRateViewInput, pairs: [Pair], pairService: PairsServiceInput) {
+    init(view: CurrenciesRateViewInput, rateService: RateServiceInput, pairsStorage: PairsStorageServiceInput) {
         self.view = view
-        self.state = pairs
-        self.pairService = pairService
+        self.rateService = rateService
+        self.pairsStorage = pairsStorage
     }
 }
 
@@ -35,8 +34,10 @@ extension CurrenciesRatePresenter: CurrenciesRateModuleInput {
 
 extension CurrenciesRatePresenter: PairAdapterDelegate {
     func shouldDeleteRow(at row: Int) {
-        self.state.remove(at: row)
-        self.deletedPair?(row)
+        var pairs = self.pairsStorage.pairs
+        pairs.remove(at: row)
+        self.pairsStorage.pairs = pairs
+        
         self.updateEmptyView()
     }
 }
@@ -54,8 +55,10 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
         self.view.hideRepeatView()
         self.updateEmptyView()
         
-        self.view.isLoading = true
-        self.fetchPairsRequestAction.run()
+        if !self.pairsStorage.pairs.isEmpty {
+            self.view.isLoading = true
+            self.fetchPairsRequestAction.run()
+        }
     }
     
     func viewDidDisappear() {
@@ -73,7 +76,7 @@ extension CurrenciesRatePresenter: CurrenciesRateViewOutput {
 
 private extension CurrenciesRatePresenter {
     func updateEmptyView() {
-        if self.state.isEmpty {
+        if self.pairsStorage.pairs.isEmpty {
             self.view.showEmptyView()
         } else {
             self.view.hideEmptyView()
@@ -81,7 +84,7 @@ private extension CurrenciesRatePresenter {
     }
     
     func updatePairs() {
-        self.pairService.fetchPairs(pairs: self.state) { [weak self] result in
+        self.rateService.fetchRates(pairs: self.pairsStorage.pairs) { [weak self] result in
             guard let self = self else { return }
 
             self.view.isLoading = false
@@ -95,7 +98,7 @@ private extension CurrenciesRatePresenter {
                 self.view.showPairs(list.map { PairTableViewCell.DisplayItem(leftTitle: "1" + " " + $0.pair.first.code,
                                                                              leftSubtitle: $0.pair.first.name,
                                                                              rightTitle: $0.value.makeRateAttributedString(),
-                                                                             rightSubtitle: $0.pair.secodn.name + " • " + $0.pair.secodn.code) })
+                                                                             rightSubtitle: $0.pair.second.name + " • " + $0.pair.second.code) })
             }
         }
     }
