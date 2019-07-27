@@ -12,10 +12,8 @@ final class ApplicationCoordinator: CommonCoordinator {
     private let coordinatorFactory: CoordinatorFactory
     private let currenciesRateModuleFactory: CurrenciesRateModuleFactory
     private let router: Router
-    private var storageService: PairsStorageServiceInput
     
     init(router: Router, coordinatorFactory: CoordinatorFactory, currenciesRateModuleFactory: CurrenciesRateModuleFactory) {
-        self.storageService = ServiceLocator.sharedInstance.getService()
         self.router = router
         self.coordinatorFactory = coordinatorFactory
         self.currenciesRateModuleFactory = currenciesRateModuleFactory
@@ -34,20 +32,7 @@ final class ApplicationCoordinator: CommonCoordinator {
     }
     
     private func runAddCurrenciesPair() {
-        // TODO: Make correct filter for disabled currencies & move it to module presenter
-//        let disabledCurrencies = self.storage.pairs.map { $0.first }
-        
-        let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router,
-                                                                      disabledCurrencies: [])
-        
-        coordinator.selectedPair = { [weak self] pair in
-            guard let self = self else { return }
-
-            var pairs = self.storageService.pairs
-            pairs.append(pair)
-            self.storageService.pairs = pairs
-        }
-        
+        let coordinator = self.coordinatorFactory.makeAddCurrencyPair(router: self.router)
         coordinator.runFlow(coordinator: coordinator) { [weak self] in
             self?.start()
         }

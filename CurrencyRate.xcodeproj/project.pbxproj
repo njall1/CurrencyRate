@@ -31,6 +31,7 @@
 		1962C3EE22E96D95003E957C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3ED22E96D95003E957C /* Extensions.swift */; };
 		1962C3F222E9782C003E957C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3F122E9782C003E957C /* DataManager.swift */; };
 		1962C40222EC650B003E957C /* PairEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40122EC650B003E957C /* PairEntity.swift */; };
+		1962C40422ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40322ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift */; };
 		1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328722E1071700DAB4AD /* AppDelegate.swift */; };
 		1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1986328E22E1071A00DAB4AD /* Assets.xcassets */; };
 		1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */; };
@@ -104,6 +105,7 @@
 		1962C3ED22E96D95003E957C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1962C3F122E9782C003E957C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1962C40122EC650B003E957C /* PairEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairEntity.swift; sourceTree = "<group>"; };
+		1962C40322ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyPairCoordinatorHelper.swift; sourceTree = "<group>"; };
 		1986328422E1071700DAB4AD /* CurrencyRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986328722E1071700DAB4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1986328E22E1071A00DAB4AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -337,6 +339,14 @@
 			path = "Caсhe";
 			sourceTree = "<group>";
 		};
+		1962C40522ECF4A8003E957C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1962C40322ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1986327B22E1071700DAB4AD = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +397,7 @@
 		19A9A7C522E4C15400EED646 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				1962C40522ECF4A8003E957C /* Helpers */,
 				AFC77D7B22E5F00A003AC2D1 /* Factory */,
 				19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */,
 				AFC77D7D22E5F057003AC2D1 /* AddCurrencyPairCoordinator.swift */,
@@ -629,6 +640,7 @@
 				AF0CDAF322E72CA8003FA00E /* PairTableViewCell.swift in Sources */,
 				1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */,
 				1962C3E422E625B1003E957C /* Finishable.swift in Sources */,
+				1962C40422ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift in Sources */,
 				1962C3DA22E4F782003E957C /* CommonCoordinator.swift in Sources */,
 				AF0CDB1122E760B5003FA00E /* ServiceLocator.swift in Sources */,
 				AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */,

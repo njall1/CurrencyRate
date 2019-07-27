@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RateEntity: Codable {
+struct RateEntity {
     let pair: PairEntity
     let code: String
     let value: Double

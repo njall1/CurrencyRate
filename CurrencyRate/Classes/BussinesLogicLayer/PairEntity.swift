@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PairEntity: Codable {
+struct PairEntity {
     let first: CurrencyEntity
     let second: CurrencyEntity
 }

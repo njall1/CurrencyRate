@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct CurrencyEntity: Codable, Equatable {
+struct CurrencyEntity {
     let code: String
     let name: String
 }
+
+extension CurrencyEntity: Equatable {}
 
 extension CurrencyEntity {
     init?(code: String) {
