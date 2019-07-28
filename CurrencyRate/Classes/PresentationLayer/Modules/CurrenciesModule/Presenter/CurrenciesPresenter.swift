@@ -11,8 +11,8 @@ import UIKit
 final class CurrenciesPresenter {
     private weak var view: CurrenciesViewInput!
     private var currenciesService: CurrenciesServiceInput
-    private var dataSource = [CurrencyEntity]()
-    private var disabledCurrencies = [CurrencyEntity]()
+    private var dataSource: [CurrencyEntity] = []
+    private var disabledCurrencies: [CurrencyEntity] = []
     
     var selectedCurrency: CurrencyCallback?
     var finishFlow: EmptyCallback?

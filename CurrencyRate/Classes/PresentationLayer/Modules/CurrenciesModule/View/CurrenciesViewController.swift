@@ -20,8 +20,6 @@ final class CurrenciesViewController: UIViewController {
     }
 }
 
-private extension CurrenciesViewController { }
-
 extension CurrenciesViewController: CurrenciesViewInput {
     func showCurrencies(_ list: [CurrencyTableViewCell.DisplayItem]) {
         self.adapter.reloadData(dataSource: list)

@@ -17,7 +17,12 @@ final class AddCurrencyPairCoordinator: CommonCoordinator {
     
     var finishFlow: EmptyCallback?
     
-    init(router: Routable, currenciesModuleFactory: CurrenciesModuleFactory, storage: PairsStorageServiceInput, currenciesService: CurrenciesServiceInput, helper: AddCurrencyPairCoordinatorHelperInput) {
+    init(router: Routable,
+         currenciesModuleFactory: CurrenciesModuleFactory,
+         storage: PairsStorageServiceInput,
+         currenciesService: CurrenciesServiceInput,
+         helper: AddCurrencyPairCoordinatorHelperInput)
+    {
         self.router = router
         self.modulesFactory = currenciesModuleFactory
         self.currenciesService = currenciesService

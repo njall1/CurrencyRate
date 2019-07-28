@@ -14,7 +14,7 @@ protocol PairAdapterDelegate: AnyObject {
 
 final class PairAdapter: NSObject {
     weak var delegate: PairAdapterDelegate?
-    private var dataSource = [PairTableViewCell.DisplayItem]()
+    private var dataSource: [PairTableViewCell.DisplayItem] = []
     weak var tableView: UITableView? {
         didSet {
             self.tableView?.register(UINib(nibName: PairTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: PairTableViewCell.identifier)
