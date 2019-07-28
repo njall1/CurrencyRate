@@ -9,7 +9,10 @@
 import Foundation
 
 extension AppDelegate {    
-    func registerServices() {
+    func registerDI() {
+        self.coordinatorFactory = CoordinatorFactoryImplementation()
+        self.applicationCoordinator = self.coordinatorFactory.makeApplicationCoordinator(rootController: self.rootController)
+        
         let currenciesService: CurrenciesServiceInput = CurrenciesService()
         ServiceLocator.sharedInstance.registerService(service: currenciesService)
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AppRouter: Router {
+final class AppRouter: Routable {
     
     private weak var rootController: UINavigationController?
     private var completions: [UIViewController: EmptyCallback]

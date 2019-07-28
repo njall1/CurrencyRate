@@ -13,9 +13,5 @@ extension AppDelegate {
         return self.window!.rootViewController as! UINavigationController
     }
     
-    func makeCoordinator() -> Coordinator {
-        return ApplicationCoordinator(router: AppRouter(rootController: self.rootController),
-                                      coordinatorFactory: CoordinatorFactoryImplementation(),
-                                      currenciesRateModuleFactory: ModuleFactoryImplementation())
-    }
+   
 }

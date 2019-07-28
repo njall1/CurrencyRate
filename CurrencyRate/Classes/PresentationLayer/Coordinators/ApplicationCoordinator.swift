@@ -11,9 +11,9 @@ import UIKit
 final class ApplicationCoordinator: CommonCoordinator {
     private let coordinatorFactory: CoordinatorFactory
     private let currenciesRateModuleFactory: CurrenciesRateModuleFactory
-    private let router: Router
+    private let router: Routable
     
-    init(router: Router, coordinatorFactory: CoordinatorFactory, currenciesRateModuleFactory: CurrenciesRateModuleFactory) {
+    init(router: Routable, coordinatorFactory: CoordinatorFactory, currenciesRateModuleFactory: CurrenciesRateModuleFactory) {
         self.router = router
         self.coordinatorFactory = coordinatorFactory
         self.currenciesRateModuleFactory = currenciesRateModuleFactory

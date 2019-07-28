@@ -12,10 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
+    var coordinatorFactory: CoordinatorFactory!
+    var applicationCoordinator: Coordinatable! 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.registerServices()
+        self.registerDI()
         self.applicationCoordinator.start()
         return true
     }

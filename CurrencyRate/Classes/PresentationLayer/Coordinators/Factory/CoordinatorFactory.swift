@@ -6,8 +6,9 @@
 //  Copyright © 2019 Vitaliy Rusinov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CoordinatorFactory {
-    func makeAddCurrencyPair(router: Router) -> Coordinator & Finishable
+    func makeApplicationCoordinator(rootController: UINavigationController) -> Coordinatable
+    func makeAddCurrencyPair(router: Routable) -> Coordinatable & Finishable
 }

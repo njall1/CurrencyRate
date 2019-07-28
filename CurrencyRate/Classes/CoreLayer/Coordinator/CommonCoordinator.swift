@@ -8,14 +8,14 @@
 
 import Foundation
 
-class CommonCoordinator: Coordinator {
+class CommonCoordinator: Coordinatable {
     
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinatable] = []
     
     // Please override start
     func start() {}
     
-    func runFlow(coordinator: Coordinator & Finishable, opening: @escaping EmptyCallback) {
+    func runFlow(coordinator: Coordinatable & Finishable, opening: @escaping EmptyCallback) {
         coordinator.finishFlow = {
             opening()
             self.removeDependency(coordinator)
@@ -26,12 +26,12 @@ class CommonCoordinator: Coordinator {
 }
 
 private extension CommonCoordinator {
-    func addDependency(_ coordinator: Coordinator) {
+    func addDependency(_ coordinator: Coordinatable) {
         guard !self.childCoordinators.contains(where: { $0 === coordinator }) else { return }
         self.childCoordinators.append(coordinator)
     }
     
-    func removeDependency(_ coordinator: Coordinator?) {
+    func removeDependency(_ coordinator: Coordinatable?) {
         guard !self.childCoordinators.isEmpty,
             let coordinator = coordinator
             else { return }

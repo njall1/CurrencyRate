@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Coordinator: AnyObject {
+protocol Coordinatable: AnyObject {
     func start()
-    func runFlow(coordinator: Coordinator & Finishable, opening: @escaping EmptyCallback)
+    func runFlow(coordinator: Coordinatable & Finishable, opening: @escaping EmptyCallback)
 }

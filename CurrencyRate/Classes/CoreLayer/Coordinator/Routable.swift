@@ -6,7 +6,7 @@
 //  Copyright © 2019 Vitaliy Rusinov. All rights reserved.
 //
 
-protocol Router: Presentable {
+protocol Routable: Presentable {
     func present(module: Presentable?)
     func present(module: Presentable?, animated: Bool)
     

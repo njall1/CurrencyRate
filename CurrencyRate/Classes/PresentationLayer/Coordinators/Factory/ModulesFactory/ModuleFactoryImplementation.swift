@@ -13,7 +13,7 @@ final class ModuleFactoryImplementation { }
 extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
     func makeCurrenciesRateModule() -> CurrenciesRateModuleInput {
         guard let module = CurrenciesRateAssembly.makeCurrenciesRateModule(rateServie: ServiceLocator.sharedInstance.getService(), pairsStorage: ServiceLocator.sharedInstance.getService())
-            else { fatalError("DI Error for CurrenciesRateAssembly.") }
+            else { fatalError("DI error for CurrenciesRateAssembly.") }
         return module
     }
 }
@@ -21,7 +21,7 @@ extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
 extension ModuleFactoryImplementation: CurrenciesModuleFactory {
     func makeCurrencyModule(disabledCurrencies: [CurrencyEntity]) -> CurrenciesModuleInput {
         guard let module = CurrenciesAssembly.makeCurrenciesModule(currenciesService: ServiceLocator.sharedInstance.getService(), disabledCurrencies: disabledCurrencies)
-            else { fatalError("DI Error for CurrenciesRateAssembly.") }
+            else { fatalError("DI error for CurrenciesAssembly.") }
         return module
     }
 }

@@ -10,14 +10,14 @@ import Foundation
 
 final class AddCurrencyPairCoordinator: CommonCoordinator {
     private var modulesFactory: CurrenciesModuleFactory
-    private var router: Router
+    private var router: Routable
     private var storage: PairsStorageServiceInput
     private var currenciesService: CurrenciesServiceInput
     private var helper: AddCurrencyPairCoordinatorHelperInput
     
     var finishFlow: EmptyCallback?
     
-    init(router: Router, currenciesModuleFactory: CurrenciesModuleFactory, storage: PairsStorageServiceInput, currenciesService: CurrenciesServiceInput, helper: AddCurrencyPairCoordinatorHelperInput) {
+    init(router: Routable, currenciesModuleFactory: CurrenciesModuleFactory, storage: PairsStorageServiceInput, currenciesService: CurrenciesServiceInput, helper: AddCurrencyPairCoordinatorHelperInput) {
         self.router = router
         self.modulesFactory = currenciesModuleFactory
         self.currenciesService = currenciesService
