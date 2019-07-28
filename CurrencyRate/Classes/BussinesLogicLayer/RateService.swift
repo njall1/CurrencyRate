@@ -9,13 +9,18 @@
 import Foundation
 
 protocol RateServiceInput {
-    func fetchRates(pairs: [PairEntity], completionHandler: @escaping (Result<[RateEntity], Error>) -> Void)
+    func fetchRates(
+        pairs: [PairEntity],
+        completionHandler: @escaping (Result<[RateEntity], Error>) -> Void)
 }
 
 final class RateService: Networkable, RateServiceInput {
     var dataTaskManager: DataTaskManagerInput = ServiceLocator.sharedInstance.getService()
     
-    func fetchRates(pairs: [PairEntity], completionHandler: @escaping (Result<[RateEntity], Error>) -> Void) {
+    func fetchRates(
+        pairs: [PairEntity],
+        completionHandler: @escaping (Result<[RateEntity], Error>) -> Void)
+    {
         let params: [Param] = pairs.reduce(into: [Param]()) { $0.append(("pairs" ,$1.first.code + $1.second.code)) }
         let request = ApiRequest(path: "https://europe-west1-revolut-230009.cloudfunctions.net/revolut-ios", params: params)
         self.dataTaskManager.perform(request: request) { result in
