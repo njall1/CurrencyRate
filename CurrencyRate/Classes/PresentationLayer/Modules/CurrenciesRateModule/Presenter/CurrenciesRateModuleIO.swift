@@ -8,7 +8,4 @@
 
 import Foundation
 
-typealias RowCallback = (_ row: Int) -> Void
-typealias DisabledCurrenciesCallback = (_ currencies: Int) -> Void
-
 protocol CurrenciesRateModuleInput: Presentable, Finishable { }
