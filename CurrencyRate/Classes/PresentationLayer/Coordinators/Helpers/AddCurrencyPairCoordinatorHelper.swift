@@ -15,15 +15,13 @@ protocol AddCurrencyPairCoordinatorHelperInput {
 
 final class AddCurrencyPairCoordinatorHelper: AddCurrencyPairCoordinatorHelperInput {
     func makeDisabledCurrenies(availableCurrencies: [CurrencyEntity], pairs: [PairEntity]) -> [CurrencyEntity] {
-        var disabledList = [CurrencyEntity]()
-        pairs.forEach { pair in
-            var allSelected = pairs.filter { $0.first.code == pair.first.code }.map { $0.second }
-            allSelected.append(pair.first)
-            
-            let disabledCurrency = availableCurrencies.filter { !allSelected.contains($0) }.isEmpty
-            if disabledCurrency, allSelected.count == availableCurrencies.count {
-                disabledList.append(pair.first)
-            }
+        let pairCurrencies = pairs.map { $0.first }
+        let currencies = availableCurrencies.filter { pairCurrencies.contains($0) }
+        let disabledList = currencies.filter { currency in
+            var selectedCurrencies = pairs.filter { $0.first.code == currency.code }.map { $0.second }
+            selectedCurrencies.append(currency)
+            let isDisabledCurrency = availableCurrencies.filter { !selectedCurrencies.contains($0) }.isEmpty
+            return isDisabledCurrency && selectedCurrencies.count == availableCurrencies.count
         }
         
         return disabledList

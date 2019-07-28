@@ -31,7 +31,10 @@
 		1962C3EE22E96D95003E957C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3ED22E96D95003E957C /* Extensions.swift */; };
 		1962C3F222E9782C003E957C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C3F122E9782C003E957C /* DataManager.swift */; };
 		1962C40222EC650B003E957C /* PairEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40122EC650B003E957C /* PairEntity.swift */; };
-		1962C40422ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40322ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift */; };
+		1962C40722EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40622EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift */; };
+		1962C40D22EE2E3A003E957C /* AddCurrencyPairCoordinatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40322ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift */; };
+		1962C40F22EE3FE2003E957C /* CurrenciesRateModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C40E22EE3FE2003E957C /* CurrenciesRateModuleTests.swift */; };
+		1962C41122EE403E003E957C /* RateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962C41022EE403E003E957C /* RateServiceTests.swift */; };
 		1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328722E1071700DAB4AD /* AppDelegate.swift */; };
 		1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1986328E22E1071A00DAB4AD /* Assets.xcassets */; };
 		1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */; };
@@ -106,6 +109,9 @@
 		1962C3F122E9782C003E957C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1962C40122EC650B003E957C /* PairEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairEntity.swift; sourceTree = "<group>"; };
 		1962C40322ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyPairCoordinatorHelper.swift; sourceTree = "<group>"; };
+		1962C40622EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCurrencyPairCoordinatorHelperTests.swift; sourceTree = "<group>"; };
+		1962C40E22EE3FE2003E957C /* CurrenciesRateModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateModuleTests.swift; sourceTree = "<group>"; };
+		1962C41022EE403E003E957C /* RateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateServiceTests.swift; sourceTree = "<group>"; };
 		1986328422E1071700DAB4AD /* CurrencyRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986328722E1071700DAB4AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1986328E22E1071A00DAB4AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -379,6 +385,9 @@
 		1986329B22E1071A00DAB4AD /* CurrencyRateTests */ = {
 			isa = PBXGroup;
 			children = (
+				1962C41022EE403E003E957C /* RateServiceTests.swift */,
+				1962C40E22EE3FE2003E957C /* CurrenciesRateModuleTests.swift */,
+				1962C40622EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift */,
 				1986329C22E1071A00DAB4AD /* CurrencyRateTests.swift */,
 				1986329E22E1071A00DAB4AD /* Info.plist */,
 			);
@@ -640,7 +649,7 @@
 				AF0CDAF322E72CA8003FA00E /* PairTableViewCell.swift in Sources */,
 				1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */,
 				1962C3E422E625B1003E957C /* Finishable.swift in Sources */,
-				1962C40422ECF495003E957C /* AddCurrencyPairCoordinatorHelper.swift in Sources */,
+				1962C40D22EE2E3A003E957C /* AddCurrencyPairCoordinatorHelper.swift in Sources */,
 				1962C3DA22E4F782003E957C /* CommonCoordinator.swift in Sources */,
 				AF0CDB1122E760B5003FA00E /* ServiceLocator.swift in Sources */,
 				AFC77D5822E5D54F003AC2D1 /* CoordinatorFactory.swift in Sources */,
@@ -678,6 +687,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1986329D22E1071A00DAB4AD /* CurrencyRateTests.swift in Sources */,
+				1962C41122EE403E003E957C /* RateServiceTests.swift in Sources */,
+				1962C40722EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift in Sources */,
+				1962C40F22EE3FE2003E957C /* CurrenciesRateModuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +849,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CurrencyRate/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -854,6 +867,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/CurrencyRate/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
