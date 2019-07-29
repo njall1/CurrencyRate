@@ -13,7 +13,6 @@ final class CoordinatorFactoryImplementation: CoordinatorFactory {
         return AddCurrencyPairCoordinator(router: router,
                                           currenciesModuleFactory: ModuleFactoryImplementation(),
                                           storage: ServiceLocator.sharedInstance.getService(),
-                                          currenciesService: ServiceLocator.sharedInstance.getService(),
                                           helper: AddCurrencyPairCoordinatorHelper())
     }
     

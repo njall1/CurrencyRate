@@ -12,7 +12,6 @@ final class AddCurrencyPairCoordinator: CommonCoordinator {
     private var modulesFactory: CurrenciesModuleFactory
     private var router: Routable
     private var storage: PairsStorageServiceInput
-    private var currenciesService: CurrenciesServiceInput
     private var helper: AddCurrencyPairCoordinatorHelperInput
     
     var finishFlow: EmptyCallback?
@@ -20,12 +19,10 @@ final class AddCurrencyPairCoordinator: CommonCoordinator {
     init(router: Routable,
          currenciesModuleFactory: CurrenciesModuleFactory,
          storage: PairsStorageServiceInput,
-         currenciesService: CurrenciesServiceInput,
          helper: AddCurrencyPairCoordinatorHelperInput)
     {
         self.router = router
         self.modulesFactory = currenciesModuleFactory
-        self.currenciesService = currenciesService
         self.storage = storage
         self.helper = helper
     }
@@ -33,7 +30,7 @@ final class AddCurrencyPairCoordinator: CommonCoordinator {
     override func start() {
         super.start()
         
-        let disabledCurrencies = self.helper.makeDisabledCurrenies(availableCurrencies: currenciesService.fetchCurrencies(), pairs: self.storage.pairs)
+        let disabledCurrencies = self.helper.makeDisabledCurrenies(availableCurrencies: Constants.currencies, pairs: self.storage.pairs)
         let module = self.modulesFactory.makeCurrencyModule(disabledCurrencies: disabledCurrencies)
         
         module.selectedCurrency = { [weak self] currency in

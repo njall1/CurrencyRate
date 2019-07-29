@@ -13,16 +13,13 @@ extension AppDelegate {
         self.coordinatorFactory = CoordinatorFactoryImplementation()
         self.applicationCoordinator = self.coordinatorFactory.makeApplicationCoordinator(rootController: self.rootController)
         
-        let currenciesService: CurrenciesServiceInput = CurrenciesService()
-        ServiceLocator.sharedInstance.registerService(service: currenciesService)
-        
         let storageService: PairsStorageServiceInput = StorageService(dataManager: DataManager())
         ServiceLocator.sharedInstance.registerService(service: storageService)
         
         let dataTaskManager: DataTaskManagerInput = DataTaskManager()
         ServiceLocator.sharedInstance.registerService(service: dataTaskManager)
         
-        let pairServiceInput: RateServiceInput = RateService()
+        let pairServiceInput: RateServiceInput = RateService(dataTaskManager: DataTaskManager())
         ServiceLocator.sharedInstance.registerService(service: pairServiceInput)
     }
 }

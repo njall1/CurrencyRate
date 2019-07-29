@@ -17,9 +17,7 @@ extension CurrencyEntity: Equatable {}
 
 extension CurrencyEntity {
     init?(code: String) {
-        let currenciesService: CurrenciesServiceInput = ServiceLocator.sharedInstance.getService()
-        let currenciesList = currenciesService.fetchCurrencies()
-        guard let currency = currenciesList.first(where: { $0.code == code }) else { return nil }
+        guard let currency = Constants.currencies.first(where: { $0.code == code }) else { return nil }
         
         self.code = currency.code
         self.name = currency.name

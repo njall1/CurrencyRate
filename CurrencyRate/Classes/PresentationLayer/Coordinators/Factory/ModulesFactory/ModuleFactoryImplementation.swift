@@ -20,7 +20,7 @@ extension ModuleFactoryImplementation: CurrenciesRateModuleFactory {
 
 extension ModuleFactoryImplementation: CurrenciesModuleFactory {
     func makeCurrencyModule(disabledCurrencies: [CurrencyEntity]) -> CurrenciesModuleInput {
-        guard let module = CurrenciesAssembly.makeCurrenciesModule(currenciesService: ServiceLocator.sharedInstance.getService(), disabledCurrencies: disabledCurrencies)
+        guard let module = CurrenciesAssembly.makeCurrenciesModule(disabledCurrencies: disabledCurrencies)
             else { fatalError("DI error for CurrenciesAssembly.") }
         return module
     }

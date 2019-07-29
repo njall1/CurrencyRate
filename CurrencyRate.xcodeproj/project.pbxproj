@@ -14,7 +14,6 @@
 		1938B3F522E37F1A00843E2A /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3F422E37F1A00843E2A /* CurrenciesViewController.swift */; };
 		1938B3F722E37F8300843E2A /* CurrenciesViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3F622E37F8300843E2A /* CurrenciesViewIO.swift */; };
 		1938B3FB22E385A800843E2A /* CurrencyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3FA22E385A800843E2A /* CurrencyEntity.swift */; };
-		1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B3FC22E3862C00843E2A /* CurrenciesService.swift */; };
 		1938B41C22E38C9C00843E2A /* CurrenciesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B41B22E38C9C00843E2A /* CurrenciesAssembly.swift */; };
 		1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B41D22E3946700843E2A /* CurrenciesPresenter.swift */; };
 		1938B42022E3B00100843E2A /* CurrenciesModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938B41F22E3B00100843E2A /* CurrenciesModuleIO.swift */; };
@@ -38,7 +37,6 @@
 		1986328822E1071700DAB4AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986328722E1071700DAB4AD /* AppDelegate.swift */; };
 		1986328F22E1071A00DAB4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1986328E22E1071A00DAB4AD /* Assets.xcassets */; };
 		1986329222E1071A00DAB4AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1986329022E1071A00DAB4AD /* LaunchScreen.storyboard */; };
-		1986329D22E1071A00DAB4AD /* CurrencyRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986329C22E1071A00DAB4AD /* CurrencyRateTests.swift */; };
 		198632A822E1071A00DAB4AD /* CurrencyRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198632A722E1071A00DAB4AD /* CurrencyRateUITests.swift */; };
 		19A9A7CB22E4C29E00EED646 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A9A7CA22E4C29E00EED646 /* ApplicationCoordinator.swift */; };
 		AF0CD41A22E61424006EFC82 /* CurrenciesRateModuleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0CD41922E61424006EFC82 /* CurrenciesRateModuleIO.swift */; };
@@ -64,6 +62,8 @@
 		AFC77D9622E610FF003AC2D1 /* CurrenciesRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D9522E610FF003AC2D1 /* CurrenciesRateViewController.swift */; };
 		AFC77D9822E6114B003AC2D1 /* CurrenciesRateViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D9722E6114B003AC2D1 /* CurrenciesRateViewIO.swift */; };
 		AFC77D9C22E61270003AC2D1 /* CurrenciesRateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC77D9B22E61270003AC2D1 /* CurrenciesRateAssembly.swift */; };
+		AFD0E1A022EEFE77001014EE /* Mapperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0E19F22EEFE77001014EE /* Mapperable.swift */; };
+		AFD0E1C022EF10C2001014EE /* CurrenciesModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD0E1BF22EF10C2001014EE /* CurrenciesModuleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 		1938B3F422E37F1A00843E2A /* CurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 		1938B3F622E37F8300843E2A /* CurrenciesViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewIO.swift; sourceTree = "<group>"; };
 		1938B3FA22E385A800843E2A /* CurrencyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEntity.swift; sourceTree = "<group>"; };
-		1938B3FC22E3862C00843E2A /* CurrenciesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesService.swift; sourceTree = "<group>"; };
 		1938B41B22E38C9C00843E2A /* CurrenciesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesAssembly.swift; sourceTree = "<group>"; };
 		1938B41D22E3946700843E2A /* CurrenciesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesPresenter.swift; sourceTree = "<group>"; };
 		1938B41F22E3B00100843E2A /* CurrenciesModuleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrenciesModuleIO.swift; sourceTree = "<group>"; };
@@ -118,7 +117,6 @@
 		1986329122E1071A00DAB4AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1986329322E1071A00DAB4AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1986329822E1071A00DAB4AD /* CurrencyRateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyRateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1986329C22E1071A00DAB4AD /* CurrencyRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateTests.swift; sourceTree = "<group>"; };
 		1986329E22E1071A00DAB4AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		198632A322E1071A00DAB4AD /* CurrencyRateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyRateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198632A722E1071A00DAB4AD /* CurrencyRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateUITests.swift; sourceTree = "<group>"; };
@@ -147,6 +145,8 @@
 		AFC77D9522E610FF003AC2D1 /* CurrenciesRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateViewController.swift; sourceTree = "<group>"; };
 		AFC77D9722E6114B003AC2D1 /* CurrenciesRateViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateViewIO.swift; sourceTree = "<group>"; };
 		AFC77D9B22E61270003AC2D1 /* CurrenciesRateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesRateAssembly.swift; sourceTree = "<group>"; };
+		AFD0E19F22EEFE77001014EE /* Mapperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapperable.swift; sourceTree = "<group>"; };
+		AFD0E1BF22EF10C2001014EE /* CurrenciesModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModuleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,11 +210,9 @@
 		1938B3DF22E18D6100843E2A /* BussinesLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AFD0E19C22EEFAC6001014EE /* Rate */,
 				1938B3FA22E385A800843E2A /* CurrencyEntity.swift */,
 				1962C40122EC650B003E957C /* PairEntity.swift */,
-				1962C3EA22E78F2B003E957C /* RateEntity.swift */,
-				1938B3FC22E3862C00843E2A /* CurrenciesService.swift */,
-				AF0CDB0E22E758CC003FA00E /* RateService.swift */,
 				AF24038922E9D64200C1BBC2 /* StorageService.swift */,
 			);
 			path = BussinesLogicLayer;
@@ -325,6 +323,7 @@
 				AFB8DE6922E8510C0048D672 /* DataTaskManager.swift */,
 				AFB8DE6B22E85A330048D672 /* Networkable.swift */,
 				AF24038B22E9DF2B00C1BBC2 /* DeferedAction.swift */,
+				AFD0E19F22EEFE77001014EE /* Mapperable.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -385,10 +384,10 @@
 		1986329B22E1071A00DAB4AD /* CurrencyRateTests */ = {
 			isa = PBXGroup;
 			children = (
+				AFD0E1BF22EF10C2001014EE /* CurrenciesModuleTests.swift */,
 				1962C41022EE403E003E957C /* RateServiceTests.swift */,
 				1962C40E22EE3FE2003E957C /* CurrenciesRateModuleTests.swift */,
 				1962C40622EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift */,
-				1986329C22E1071A00DAB4AD /* CurrencyRateTests.swift */,
 				1986329E22E1071A00DAB4AD /* Info.plist */,
 			);
 			path = CurrencyRateTests;
@@ -497,6 +496,15 @@
 				AFC77D7722E5EAED003AC2D1 /* ModuleFactoryImplementation.swift */,
 			);
 			path = ModulesFactory;
+			sourceTree = "<group>";
+		};
+		AFD0E19C22EEFAC6001014EE /* Rate */ = {
+			isa = PBXGroup;
+			children = (
+				1962C3EA22E78F2B003E957C /* RateEntity.swift */,
+				AF0CDB0E22E758CC003FA00E /* RateService.swift */,
+			);
+			path = Rate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -640,12 +648,12 @@
 				AF0CD41A22E61424006EFC82 /* CurrenciesRateModuleIO.swift in Sources */,
 				1962C3F222E9782C003E957C /* DataManager.swift in Sources */,
 				1938B3EF22E377BB00843E2A /* CurrenciesAdapter.swift in Sources */,
+				AFD0E1A022EEFE77001014EE /* Mapperable.swift in Sources */,
 				1962C3E822E64C0E003E957C /* CurrenciesModuleFactory.swift in Sources */,
 				AF0CD41C22E6153F006EFC82 /* CurrenciesRateModuleFactory.swift in Sources */,
 				AF24038C22E9DF2B00C1BBC2 /* DeferedAction.swift in Sources */,
 				1938B3EB22E3716400843E2A /* CurrencyTableViewCell.swift in Sources */,
 				1962C3EE22E96D95003E957C /* Extensions.swift in Sources */,
-				1938B3FD22E3862C00843E2A /* CurrenciesService.swift in Sources */,
 				AF0CDAF322E72CA8003FA00E /* PairTableViewCell.swift in Sources */,
 				1938B41E22E3946700843E2A /* CurrenciesPresenter.swift in Sources */,
 				1962C3E422E625B1003E957C /* Finishable.swift in Sources */,
@@ -686,9 +694,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1986329D22E1071A00DAB4AD /* CurrencyRateTests.swift in Sources */,
 				1962C41122EE403E003E957C /* RateServiceTests.swift in Sources */,
 				1962C40722EE0C26003E957C /* AddCurrencyPairCoordinatorHelperTests.swift in Sources */,
+				AFD0E1C022EF10C2001014EE /* CurrenciesModuleTests.swift in Sources */,
 				1962C40F22EE3FE2003E957C /* CurrenciesRateModuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

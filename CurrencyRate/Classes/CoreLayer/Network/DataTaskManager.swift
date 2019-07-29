@@ -10,7 +10,7 @@ import Foundation
 
 typealias Param = (String, AnyHashable)
 typealias JSON = [String: AnyHashable]
-typealias DataTaskCallback = (Result<JSON?, Error>) -> Void
+typealias DataTaskCallback = (Result<Data?, Error>) -> Void
 
 struct AppError: Error { }
 
@@ -58,17 +58,8 @@ final class DataTaskManager: DataTaskManagerInput {
                     return
                 }
                 
-                do {
-                    let jsonResponse = try JSONSerialization.jsonObject(with:
-                        dataResponse, options: []) as? JSON
-                    
-                    DispatchQueue.main.async {
-                        completionHandler(.success(jsonResponse))
-                    }
-                } catch let parsingError {
-                    DispatchQueue.main.async {
-                        completionHandler(.failure(parsingError))
-                    }
+                DispatchQueue.main.async {
+                    completionHandler(.success(dataResponse))
                 }
             }
         }

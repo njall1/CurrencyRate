@@ -7,27 +7,67 @@
 //
 
 import XCTest
+@testable import CurrencyRate
 
 class RateServiceTests: XCTestCase {
+    
+    var sut: RateServiceInput!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = RateService(dataTaskManager: DataTaskManager())
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testResponseForFetchRates() {
+        let currency1 = CurrencyEntity(code: "EUR", name: "")
+        let currency2 = CurrencyEntity(code: "GBP", name: "")
+        let currency3 = CurrencyEntity(code: "DKK", name: "")
+        let pair1 = PairEntity(first:currency1, second: currency2)
+        let pair2 = PairEntity(first: currency1, second: currency3)
+        let pairs = [pair1, pair2]
+        
+        sut.fetchRates(pairs: pairs) { result in
+            switch result {
+            case .failure(let error):
+                XCTFail("Error: \(error.localizedDescription)")
+            case .success(let rates):
+                XCTAssertEqual(rates.count, pairs.count, "Response from fetchRates(pairs: [PairEntity] ... is wrong!")
+            }
         }
     }
-
+    
+    func testCallToRatesCompleted() {
+        let currency1 = CurrencyEntity(code: "EUR", name: "")
+        let currency2 = CurrencyEntity(code: "GBP", name: "")
+        let currency3 = CurrencyEntity(code: "DKK", name: "")
+        let pair1 = PairEntity(first:currency1, second: currency2)
+        let pair2 = PairEntity(first: currency1, second: currency3)
+        let pairs = [pair1, pair2]
+        
+        var rates: [RateEntity]?
+        var responseError: Error?
+        
+        let promise = expectation(description: "Completion handler invoked")
+        
+        sut.fetchRates(pairs: pairs) { result in
+            switch result {
+            case .failure(let error):
+                responseError = error
+            case .success(let result):
+                rates = result
+            }
+            
+            promise.fulfill()
+        }
+        
+        wait(for: [promise], timeout: 5)
+        
+        XCTAssertNil(responseError)
+        XCTAssertEqual(pairs.count, rates?.count)
+    }
 }

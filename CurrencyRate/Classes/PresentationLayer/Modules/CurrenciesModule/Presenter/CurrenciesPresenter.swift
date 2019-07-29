@@ -10,16 +10,14 @@ import UIKit
 
 final class CurrenciesPresenter {
     private weak var view: CurrenciesViewInput!
-    private var currenciesService: CurrenciesServiceInput
     private var dataSource: [CurrencyEntity] = []
     private var disabledCurrencies: [CurrencyEntity] = []
     
     var selectedCurrency: CurrencyCallback?
     var finishFlow: EmptyCallback?
     
-    init(view: CurrenciesViewInput, currenciesService: CurrenciesServiceInput, disabledCurrencies: [CurrencyEntity]) {
+    init(view: CurrenciesViewInput, disabledCurrencies: [CurrencyEntity]) {
         self.view = view
-        self.currenciesService = currenciesService
         self.disabledCurrencies = disabledCurrencies
     }
 }
@@ -32,7 +30,7 @@ extension CurrenciesPresenter: CurrenciesModuleInput {
 
 extension CurrenciesPresenter: CurrenciesViewOutput {
     func viewDidLoad() {
-        self.dataSource = self.currenciesService.fetchCurrencies()
+        self.dataSource = Constants.currencies
         self.view.showCurrencies(self.dataSource.map {
             let alpha: CGFloat = self.isDisabledCurrency(currency: $0) ? Constants.disabledAlpha : Constants.normalAlpha
             return CurrencyTableViewCell.DisplayItem(thumbnailName: $0.code,

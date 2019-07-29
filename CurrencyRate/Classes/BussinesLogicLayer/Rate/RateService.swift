@@ -15,7 +15,11 @@ protocol RateServiceInput {
 }
 
 final class RateService: Networkable, RateServiceInput {
-    var dataTaskManager: DataTaskManagerInput = ServiceLocator.sharedInstance.getService()
+    var dataTaskManager: DataTaskManagerInput
+    
+    init(dataTaskManager: DataTaskManagerInput) {
+        self.dataTaskManager = dataTaskManager
+    }
     
     func fetchRates(
         pairs: [PairEntity],
@@ -27,13 +31,19 @@ final class RateService: Networkable, RateServiceInput {
             switch result {
             case .failure(let error):
                 completionHandler(.failure(error))
-            case .success(let json):
-                let response = pairs.map { pair -> RateEntity in
-                    let code = pair.first.code + pair.second.code
-                    return RateEntity(pair: pair, code: code, value: json?[code] as? Double ?? 0.0)
-                }
+            case .success(let data):
+                guard let data = data,
+                    let rateList = RateEntity.makeEntities(data: data)
+                    else {
+                        completionHandler(.failure(AppError()))
+                        return
+                    }
                 
-                completionHandler(.success(response))
+                let sordedRates = rateList.sorted(by: { (first, second) -> Bool in
+                    return first.code < second.code
+                })
+                
+                completionHandler(.success(sordedRates))
             }
         }
     }
