@@ -39,11 +39,11 @@ final class RateService: Networkable, RateServiceInput {
                         return
                     }
                 
-                let sordedRates = rateList.sorted(by: { (first, second) -> Bool in
+                let sortedRates = rateList.sorted(by: { (first, second) -> Bool in
                     return first.code < second.code
                 })
                 
-                completionHandler(.success(sordedRates))
+                completionHandler(.success(sortedRates))
             }
         }
     }
